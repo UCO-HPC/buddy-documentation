@@ -1,20 +1,29 @@
-.. buddy-docs documentation master file, created by
-   sphinx-quickstart on Mon Aug 16 11:25:39 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to buddy-docs's documentation!
-======================================
+Buddy Docs
+==========
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Quickstart
+   :name: sec-quickstart
+   :glob:
 
+   quickstart/overview.rst
+   quickstart/files.rst
+   quickstart/basic_job.rst
 
+.. toctree::
+   :maxdepth: 2
+   :caption: General
+   :name: sec-general
+   :glob:
 
-Indices and tables
-==================
+   general/*
+	  
+.. toctree::
+   :maxdepth: 2
+   :caption: Software
+   :name: sec-software
+   :glob:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   software/*
+   
