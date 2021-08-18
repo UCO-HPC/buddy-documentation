@@ -12,12 +12,12 @@ Connecting to Buddy
 Buddy can be accessed in a couple of ways.
 
 Through a Browser
-~~~~~~~~~~~~~~~~~
+"""""""""""""""""
 Go to buddy.uco.edu
 Enter your username and password
 
 Through SSH
-~~~~~~~~~~~
+"""""""""""
 (instructions for connecting through ssh)
 
 Linux on Buddy
