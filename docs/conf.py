@@ -4,6 +4,8 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+# Parts of this document are adapted from: https://github.com/godotengine/godot-docs
+
 # -- Path setup --------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -42,15 +44,44 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
+# -- Syntax hilighting -------------------------------------------------------
+
+from pygments.lexers.shell import BashLexer
+from sphinx.highlighting import lexers
+
+pygments_style = "sphinx"
+
+# custom lexers: https://stackoverflow.com/questions/16469869/custom-syntax-highlighting-with-sphinx
+# bash
+lexers['bash'] = BashLexer()
+
+# slurm
+lexers['slurm_bash'] = BashLexer()
+
+
 # -- Options for HTML output -------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
-#html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
 
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
+html_theme_options = {
+    # if we have a html_logo below, this shows /only/ the logo with no title text
+    #"logo_only": True,
+    # Collapse navigation (False makes it tree-like)
+    "collapse_navigation": False,
+}
+
+# These folders are copied to the documentation's HTML output
 html_static_path = ['_static']
+
+#must be a png to support transparency
+#html_logo = "img/logo.png"
+
+#html_favicon = "img/favicon.ico"
+
+# These paths are either relative to html_static_path
+# or fully qualified paths (e.g. https://...)
+html_css_files = [
+    "css/custom.css",
+]
+
+#html_js_files = []

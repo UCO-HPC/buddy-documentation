@@ -1,28 +1,23 @@
 Overview
 ========
 
-About
-^^^^^
-(Something about how buddy is a computing cluster and a description of what that is.)
+.. Part of this page is adapted from another page-> https://www.uco.edu/cms/research-centers/creic/buddy-supercomputer
 
-(Something about what can be accomplished with buddy.)
+About
+^^^^^ 
+Buddy a 37-node supercomputer managed by `CREIC <https://www.uco.edu/cms/research-centers/creic/>`_ and funded by the National Science Foundation. You can see some details `on the NSF site <https://www.nsf.gov/awardsearch/showAward?AWD_ID=1429702>`_.
+
+Buddy is being used for both research and education. Research includes projects on particle transport, micromixing, stochastic modeling, ecological modeling, bio-informatics and spread of disease.
 
 Connecting to Buddy
 ^^^^^^^^^^^^^^^^^^^
-Buddy can be accessed in a couple of ways.
+If you are a faculty member or student working on a project at UCO (or with a UCO faculty member), you can access Buddy. Send an email to hpc@uco.edu to request an account.
 
-Through a Browser
-"""""""""""""""""
-Go to buddy.uco.edu
-Enter your username and password
-
-Through SSH
-"""""""""""
-(instructions for connecting through ssh)
+Once you have an account, you can access Buddy from anywhere using a browser through https://buddy.uco.edu. We use the Open OnDemand software which makes it easy to setup jobs and use interactive graphical user interfaces. You can also access Buddy remotely through a terminal using something like ssh.
 
 Linux on Buddy
 ^^^^^^^^^^^^^^
-Buddy uses linux as its operating system. Many of the day to day operations are similar to other operating systems like Window and MacOS. For more information see: :doc:`files` and :doc:`../general/terminal`.
+Buddy uses linux as its operating system. Many of the day to day operations are similar to other operating systems like Windows and MacOS. For more information see: :doc:`files` and :doc:`../general/terminal`.
 
 What is a Slurm Job?
 ^^^^^^^^^^^^^^^^^^^^

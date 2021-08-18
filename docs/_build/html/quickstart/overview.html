@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
   
@@ -91,16 +92,17 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#about">About</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#connecting-to-buddy">Connecting to Buddy</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#through-a-browser">Through a Browser</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#through-ssh">Through SSH</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#connecting-to-buddy">Connecting to Buddy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#linux-on-buddy">Linux on Buddy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-a-slurm-job">What is a Slurm Job?</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="files.html">Creating and Editing Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Creating and Editing Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="files.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#create-delete-and-edit">Create, Delete, and Edit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html#import-and-export">Import and Export</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="basic_job.html">Creating a Basic Job</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General</span></p>
@@ -113,7 +115,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../software/falcon.html">Falcon</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/fluent.html">Fluent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software/gaussian.html">Gaussian</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/gaussian.html">Gaussian</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software/gaussian.html#example-script">Example Script</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../software/lysis.html">Lysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/quantum_espresso.html">Quantum Espresso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../software/siesta.html">Siesta</a></li>
@@ -189,25 +194,17 @@
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="about">
 <h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
-<p>(Something about how buddy is a computing cluster and a description of what that is.)</p>
-<p>(Something about what can be accomplished with buddy.)</p>
+<p>Buddy a 37-node supercomputer managed by <a class="reference external" href="https://www.uco.edu/cms/research-centers/creic/">CREIC</a> and funded by the National Science Foundation. You can see some details <a class="reference external" href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1429702">on the NSF site</a>.</p>
+<p>Buddy is being used for both research and education. Research includes projects on particle transport, micromixing, stochastic modeling, ecological modeling, bio-informatics and spread of disease.</p>
 </div>
 <div class="section" id="connecting-to-buddy">
 <h2>Connecting to Buddy<a class="headerlink" href="#connecting-to-buddy" title="Permalink to this headline">¶</a></h2>
-<p>Buddy can be accessed in a couple of ways.</p>
-<div class="section" id="through-a-browser">
-<h3>Through a Browser<a class="headerlink" href="#through-a-browser" title="Permalink to this headline">¶</a></h3>
-<p>Go to buddy.uco.edu
-Enter your username and password</p>
-</div>
-<div class="section" id="through-ssh">
-<h3>Through SSH<a class="headerlink" href="#through-ssh" title="Permalink to this headline">¶</a></h3>
-<p>(instructions for connecting through ssh)</p>
-</div>
+<p>If you are a faculty member or student working on a project at UCO (or with a UCO faculty member), you can access Buddy. Send an email to <a class="reference external" href="mailto:hpc&#37;&#52;&#48;uco&#46;edu">hpc<span>&#64;</span>uco<span>&#46;</span>edu</a> to request an account.</p>
+<p>Once you have an account, you can access Buddy from anywhere using a browser through <a class="reference external" href="https://buddy.uco.edu">https://buddy.uco.edu</a>. We use the Open OnDemand software which makes it easy to setup jobs and use interactive graphical user interfaces. You can also access Buddy remotely through a terminal using something like ssh.</p>
 </div>
 <div class="section" id="linux-on-buddy">
 <h2>Linux on Buddy<a class="headerlink" href="#linux-on-buddy" title="Permalink to this headline">¶</a></h2>
-<p>Buddy uses linux as its operating system. Many of the day to day operations are similar to other operating systems like Window and MacOS. For more information see: <a class="reference internal" href="files.html"><span class="doc">Creating and Editing Files</span></a> and <a class="reference internal" href="../general/terminal.html"><span class="doc">Using the Terminal</span></a>.</p>
+<p>Buddy uses linux as its operating system. Many of the day to day operations are similar to other operating systems like Windows and MacOS. For more information see: <a class="reference internal" href="files.html"><span class="doc">Creating and Editing Files</span></a> and <a class="reference internal" href="../general/terminal.html"><span class="doc">Using the Terminal</span></a>.</p>
 </div>
 <div class="section" id="what-is-a-slurm-job">
 <h2>What is a Slurm Job?<a class="headerlink" href="#what-is-a-slurm-job" title="Permalink to this headline">¶</a></h2>

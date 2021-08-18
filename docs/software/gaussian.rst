@@ -4,7 +4,7 @@ Gaussian
 Example Script
 ^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: slurm_bash
 
    #!/bin/bash
    #SBATCH --job-name=g16

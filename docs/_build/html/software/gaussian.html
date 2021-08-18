@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
   
@@ -89,8 +90,19 @@
             
               <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart/files.html">Creating and Editing Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/overview.html#about">About</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/overview.html#connecting-to-buddy">Connecting to Buddy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/overview.html#linux-on-buddy">Linux on Buddy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/overview.html#what-is-a-slurm-job">What is a Slurm Job?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/files.html">Creating and Editing Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/files.html#navigation">Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/files.html#create-delete-and-edit">Create, Delete, and Edit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart/files.html#import-and-export">Import and Export</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/basic_job.html">Creating a Basic Job</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General</span></p>
@@ -182,44 +194,44 @@
 <h1>Gaussian<a class="headerlink" href="#gaussian" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="example-script">
 <h2>Example Script<a class="headerlink" href="#example-script" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
-#SBATCH --job-name=g16
-#SBATCH --nodes=2
-#SBATCH --cpus-per-task=20
-#SBATCH --output=g16-%j.out
-#SBATCH --partition=general
+<div class="highlight-slurm_bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=g16</span>
+<span class="c1">#SBATCH --nodes=2</span>
+<span class="c1">#SBATCH --cpus-per-task=20</span>
+<span class="c1">#SBATCH --output=g16-%j.out</span>
+<span class="c1">#SBATCH --partition=general</span>
 
-### Of the batch options, it is only recommnded to change &quot;--job-name&quot;, &quot;--nodes&quot;, and
-### &quot;--output&quot;. Any other modifications may result in an error.
+<span class="c1">### Of the batch options, it is only recommnded to change &quot;--job-name&quot;, &quot;--nodes&quot;, and</span>
+<span class="c1">### &quot;--output&quot;. Any other modifications may result in an error.</span>
 
-### It is only recommneded to change the input file in the Gaussian command. If needed
-### more g16 options can be added.
+<span class="c1">### It is only recommneded to change the input file in the Gaussian command. If needed</span>
+<span class="c1">### more g16 options can be added.</span>
 
-### If using the job composer, you will need to upload your input files to the job
-### script&#39;s folder. You can do this by clicking on &quot;edit files&quot; and then uploading
-### your com file.
+<span class="c1">### If using the job composer, you will need to upload your input files to the job</span>
+<span class="c1">### script&#39;s folder. You can do this by clicking on &quot;edit files&quot; and then uploading</span>
+<span class="c1">### your com file.</span>
 
-#Load Gaussian module
+<span class="c1">#Load Gaussian module</span>
 module load Gaussian/g16
 
-#Gaussian scratch directory.
-export GAUSS_SCRDIR=/home/$USER/.gaustmp/$SLURM_JOBID
-mkdir -p $GAUSS_SCRDIR
+<span class="c1">#Gaussian scratch directory.</span>
+<span class="nb">export</span> <span class="nv">GAUSS_SCRDIR</span><span class="o">=</span>/home/<span class="nv">$USER</span>/.gaustmp/<span class="nv">$SLURM_JOBID</span>
+mkdir -p <span class="nv">$GAUSS_SCRDIR</span>
 
-#Stop OpenMP from interfering with Gaussian&#39;s thread mechanism.
-export OMP_NUM_THREADS=1
+<span class="c1">#Stop OpenMP from interfering with Gaussian&#39;s thread mechanism.</span>
+<span class="nb">export</span> <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span>
 
-#Prepare node list for Linda
-for n in `scontrol show hostname | sort -u`; do
-echo ${n}
-done | paste -s -d, &gt; snodes.$SLURM_JOBID
+<span class="c1">#Prepare node list for Linda</span>
+<span class="k">for</span> n <span class="k">in</span> <span class="sb">`</span>scontrol show hostname <span class="p">|</span> sort -u<span class="sb">`</span><span class="p">;</span> <span class="k">do</span>
+<span class="nb">echo</span> <span class="si">${</span><span class="nv">n</span><span class="si">}</span>
+<span class="k">done</span> <span class="p">|</span> paste -s -d, &gt; snodes.<span class="nv">$SLURM_JOBID</span>
 
-#Run Gaussian. It is recommended to only change the input file here. If needed you can
-#raise the memory up to 60GB, but doing so may result in an error.
-g16 -m=40gb -p=${SLURM_CPUS_PER_TASK} -w=`cat snodes.$SLURM_JOBID` your_file_name.com
+<span class="c1">#Run Gaussian. It is recommended to only change the input file here. If needed you can</span>
+<span class="c1">#raise the memory up to 60GB, but doing so may result in an error.</span>
+g16 -m<span class="o">=</span>40gb -p<span class="o">=</span><span class="si">${</span><span class="nv">SLURM_CPUS_PER_TASK</span><span class="si">}</span> -w<span class="o">=</span><span class="sb">`</span>cat snodes.<span class="nv">$SLURM_JOBID</span><span class="sb">`</span> your_file_name.com
 
-#Clean up nodes list
-rm snodes.$SLURM_JOBID
+<span class="c1">#Clean up nodes list</span>
+rm snodes.<span class="nv">$SLURM_JOBID</span>
 </pre></div>
 </div>
 </div>
