@@ -15,9 +15,12 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
 
   
@@ -36,13 +39,15 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Modules" href="../general/modules.html" />
+    <link rel="next" title="Using SSH" href="../general/github.html" />
     <link rel="prev" title="Creating and Editing Files" href="files.html" /> 
 </head>
 
@@ -57,9 +62,12 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> buddy-docs
+            <a href="../index.html">
           
 
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -107,22 +115,34 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/github.html">Using SSH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general/modules.html">Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../general/slurm.html">Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/slurm.html">Slurm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/slurm.html#terminology">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../general/slurm.html#tasks">Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../general/slurm.html#partitions">Partitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../general/slurm.html#cores">Cores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../general/slurm.html#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/slurm.html#sbatch-parameters">Sbatch Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../general/slurm.html#common-sbatch-parameters">Common sbatch parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../general/terminal.html">Using the Terminal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Software</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../software/falcon.html">Falcon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software/fluent.html">Fluent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/conda.html">Anaconda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../software/conda.html#example-script">Example Script</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../software/gaussian.html">Gaussian</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../software/gaussian.html#example-script">Example Script</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../software/lysis.html">Lysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software/quantum_espresso.html">Quantum Espresso</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software/siesta.html">Siesta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../software/tensorflow.html">TensorFlow</a></li>
 </ul>
 
             
@@ -179,8 +199,6 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/quickstart/basic_job.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -196,6 +214,33 @@
             
   <div class="section" id="creating-a-basic-job">
 <h1>Creating a Basic Job<a class="headerlink" href="#creating-a-basic-job" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-slurm_bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#SBATCH --job-name=myjob #name of job</span>
+
+<span class="c1"># The relative path output and error files. %j is replaced with job number</span>
+<span class="c1">#SBATCH --output=%j-myjob.out</span>
+<span class="c1">#SBATCH --error=%j-myjob.err</span>
+
+<span class="c1">#SBATCH --partition=general</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --cpus-per-task=10</span>
+<span class="c1">#SBATCH --ntasks=20</span>
+<span class="c1">#SBATCH --ntasks-per-node=20</span>
+<span class="c1">#SBATCH --time=48:00:00 # the maximum amount of time this job is allowed to run</span>
+
+<span class="c1">###Load wanted modules herescikit-learn/0.20.3-foss-2019a</span>
+<span class="c1"># use &quot;module spider [package]&quot; in the terminal to search for available modules</span>
+<span class="c1"># it is usually a good idea to unload all modules first with: module purge</span>
+<span class="c1"># eg. :</span>
+<span class="c1"># module purge</span>
+<span class="c1"># module load scikit-learn/0.20.3-foss-2019a</span>
+
+<span class="c1">###Your exectuable here</span>
+<span class="c1"># eg. python hello_world.py</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Hello World&quot;</span>
+</pre></div>
+</div>
 </div>
 
 
@@ -204,7 +249,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../general/modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../general/github.html" class="btn btn-neutral float-right" title="Using SSH" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="files.html" class="btn btn-neutral float-left" title="Creating and Editing Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

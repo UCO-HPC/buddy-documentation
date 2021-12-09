@@ -31,8 +31,9 @@ author = 'tdunn3'
 # ones.
 extensions = [
     'sphinx.ext.todo',
-    'sphinx.ext.viewcode',
+    #'sphinx.ext.viewcode',
     'sphinx.ext.autodoc',
+    'sphinx_copybutton',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -61,11 +62,14 @@ lexers['slurm_bash'] = BashLexer()
 
 # -- Options for HTML output -------------------------------------------------
 
+html_copy_source = False
+html_show_sourcelink = False
+
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
     # if we have a html_logo below, this shows /only/ the logo with no title text
-    #"logo_only": True,
+    "logo_only": True,
     # Collapse navigation (False makes it tree-like)
     "collapse_navigation": False,
 }
@@ -74,9 +78,9 @@ html_theme_options = {
 html_static_path = ['_static']
 
 #must be a png to support transparency
-#html_logo = "img/logo.png"
+html_logo = "img/logo.png"
 
-#html_favicon = "img/favicon.ico"
+html_favicon = "img/favicon.ico"
 
 # These paths are either relative to html_static_path
 # or fully qualified paths (e.g. https://...)

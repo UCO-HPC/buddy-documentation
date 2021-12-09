@@ -15,9 +15,12 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
   
 
   
@@ -36,6 +39,8 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -56,9 +61,12 @@
           
 
           
-            <a href="#" class="icon icon-home"> buddy-docs
+            <a href="#">
           
 
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -106,22 +114,34 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="general/github.html">Using SSH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general/modules.html">Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/slurm.html">Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/slurm.html">Slurm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general/slurm.html#terminology">Terminology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general/slurm.html#tasks">Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general/slurm.html#partitions">Partitions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general/slurm.html#cores">Cores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general/slurm.html#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general/slurm.html#sbatch-parameters">Sbatch Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general/slurm.html#common-sbatch-parameters">Common sbatch parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="general/terminal.html">Using the Terminal</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Software</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="software/falcon.html">Falcon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software/fluent.html">Fluent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/conda.html">Anaconda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software/conda.html#example-script">Example Script</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="software/gaussian.html">Gaussian</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software/gaussian.html#example-script">Example Script</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="software/lysis.html">Lysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software/quantum_espresso.html">Quantum Espresso</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software/siesta.html">Siesta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software/tensorflow.html">TensorFlow</a></li>
 </ul>
 
             
@@ -178,8 +198,6 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
         
       </li>
     
@@ -217,24 +235,28 @@
 <div class="toctree-wrapper compound" id="sec-general">
 <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="general/github.html">Using SSH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="general/modules.html">Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="general/slurm.html">Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general/slurm.html">Slurm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general/slurm.html#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general/slurm.html#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general/slurm.html#sbatch-parameters">Sbatch Parameters</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="general/terminal.html">Using the Terminal</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound" id="sec-software">
 <p class="caption" role="heading"><span class="caption-text">Software</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="software/falcon.html">Falcon</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software/fluent.html">Fluent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software/conda.html">Anaconda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="software/conda.html#example-script">Example Script</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="software/gaussian.html">Gaussian</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="software/gaussian.html#example-script">Example Script</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="software/lysis.html">Lysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software/quantum_espresso.html">Quantum Espresso</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software/siesta.html">Siesta</a></li>
-<li class="toctree-l1"><a class="reference internal" href="software/tensorflow.html">TensorFlow</a></li>
 </ul>
 </div>
 </div>
