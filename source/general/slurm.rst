@@ -13,7 +13,7 @@ Partitions
 Partitions are an organizational structure in slurm which allows nodes to be grouped together and for certain options and restrictions to be placed on them. We have a few partitions on Buddy:
 
 .. note::
-   this information can be found using the sinfo command in the terminal
+   this information can be found using the ``sinfo`` command in the terminal
 
 =============    ==============    ===============================================================
     Name          Time limit                             Description
