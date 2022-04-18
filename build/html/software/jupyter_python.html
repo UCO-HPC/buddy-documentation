@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Creating a Basic Job &mdash; buddy-docs  documentation</title>
+  <title>Jupyter/Python &mdash; buddy-docs  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -23,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Using SSH" href="../general/github.html" />
-    <link rel="prev" title="Creating and Editing Files" href="files.html" /> 
+    <link rel="next" title="R/RStudio" href="r_studio.html" />
+    <link rel="prev" title="Gaussian" href="gaussian.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,8 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html">
-            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> buddy-docs
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -44,26 +41,15 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Quickstart</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#about">About</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#connecting-to-buddy">Connecting to Buddy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#linux-on-buddy">Linux on Buddy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#what-is-a-slurm-job">What is a Slurm Job?</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="files.html">Creating and Editing Files</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="files.html#navigation">Navigation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="files.html#create-delete-and-edit">Create, Delete, and Edit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="files.html#import-and-export">Import and Export</a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Creating a Basic Job</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/connection.html">Connecting to Buddy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/etiquette.html">Cluster Etiquette</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">General</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../general/github.html">Using SSH</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../general/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/ondemand.html">Open Ondemand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/terminal.html">Using the Terminal</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general/slurm.html">Slurm</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../general/slurm.html#terminology">Terminology</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../general/slurm.html#tasks">Tasks</a></li>
@@ -78,18 +64,39 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../general/terminal.html">Using the Terminal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/data_storage.html">Data Storage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/data_transfer.html">Data Transfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/requests.html">Requesting Software</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ansys.html">ANSYS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comsol.html">COMSOL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda.html">Anaconda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conda.html#example-script">Example Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gaussian.html">Gaussian</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gaussian.html#example-script">Example Script</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter/Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="r_studio.html">R/RStudio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stacks.html">Stacks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../software/conda.html">Anaconda</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../software/conda.html#example-script">Example Script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/adv_slurm.html">Advanced Slurm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/machine_learning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/ompi.html">OMPI</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../software/gaussian.html">Gaussian</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../software/gaussian.html#example-script">Example Script</a></li>
+<p class="caption" role="heading"><span class="caption-text">Other HPC Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../other_hpc_resources/ourrstore.html">OURRstore</a></li>
 </ul>
-</li>
+<p class="caption" role="heading"><span class="caption-text">FAQ</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq/example.html">Example</a></li>
 </ul>
 
         </div>
@@ -106,7 +113,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Creating a Basic Job</li>
+      <li>Jupyter/Python</li>
 
 
       <li class="wy-breadcrumbs-aside">
@@ -119,43 +126,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="creating-a-basic-job">
-<h1>Creating a Basic Job<a class="headerlink" href="#creating-a-basic-job" title="Permalink to this headline"></a></h1>
-<div class="highlight-slurm_bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="c1">#SBATCH --job-name=myjob #name of job</span>
-
-<span class="c1"># The relative path output and error files. %j is replaced with job number</span>
-<span class="c1">#SBATCH --output=%j-myjob.out</span>
-<span class="c1">#SBATCH --error=%j-myjob.err</span>
-
-<span class="c1">#SBATCH --partition=general</span>
-<span class="c1">#SBATCH --nodes=1</span>
-<span class="c1">#SBATCH --cpus-per-task=10</span>
-<span class="c1">#SBATCH --ntasks=20</span>
-<span class="c1">#SBATCH --ntasks-per-node=20</span>
-<span class="c1">#SBATCH --time=48:00:00 # the maximum amount of time this job is allowed to run</span>
-
-<span class="c1">###Load wanted modules herescikit-learn/0.20.3-foss-2019a</span>
-<span class="c1"># use &quot;module spider [package]&quot; in the terminal to search for available modules</span>
-<span class="c1"># it is usually a good idea to unload all modules first with: module purge</span>
-<span class="c1"># eg. :</span>
-<span class="c1"># module purge</span>
-<span class="c1"># module load scikit-learn/0.20.3-foss-2019a</span>
-
-<span class="c1">###Your exectuable here</span>
-<span class="c1"># eg. python hello_world.py</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;Hello World&quot;</span>
-</pre></div>
+  <div class="section" id="jupyter-python">
+<h1>Jupyter/Python<a class="headerlink" href="#jupyter-python" title="Permalink to this headline"></a></h1>
 </div>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="files.html" class="btn btn-neutral float-left" title="Creating and Editing Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../general/github.html" class="btn btn-neutral float-right" title="Using SSH" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gaussian.html" class="btn btn-neutral float-left" title="Gaussian" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="r_studio.html" class="btn btn-neutral float-right" title="R/RStudio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

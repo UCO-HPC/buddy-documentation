@@ -7,9 +7,9 @@ Buddy Docs
    :name: sec-quickstart
    :glob:
 
-   quickstart/overview.rst
-   quickstart/files.rst
-   quickstart/basic_job.rst
+   quickstart/about.rst
+   quickstart/connection.rst
+   quickstart/etiquette.rst
 
 .. toctree::
    :maxdepth: 2
@@ -17,7 +17,12 @@ Buddy Docs
    :name: sec-general
    :glob:
 
-   general/*
+   general/ondemand.rst
+   general/terminal
+   general/slurm.rst
+   general/data_storage.rst
+   general/data_transfer.rst
+   general/requests.rst
 	  
 .. toctree::
    :maxdepth: 2
@@ -27,3 +32,26 @@ Buddy Docs
 
    software/*
    
+.. toctree::
+   :maxdepth: 2
+   :caption: Advanced
+   :name: sec-advanced
+   :glob:
+
+   advanced/*
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: Other HPC Resources
+   :name: sec-other-hpc-resources
+   :glob:
+
+   other_hpc_resources/*
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: FAQ
+   :name: sec-faq
+   :glob:
+
+   faq/*
