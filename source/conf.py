@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'buddy-docs'
-copyright = '2021, tdunn3'
-author = 'tdunn3'
+project = 'buddy-documentation'
+copyright = '2022, CREIC'
+author = 'CREIC'
 
 
 # -- General configuration ---------------------------------------------------
@@ -78,9 +78,9 @@ html_theme_options = {
 html_static_path = ['_static']
 
 #must be a png to support transparency
-html_logo = "img/logo.png"
+html_logo = "_static/img/logo.png"
 
-html_favicon = "img/favicon.ico"
+html_favicon = "_static/img/favicon.ico"
 
 # These paths are either relative to html_static_path
 # or fully qualified paths (e.g. https://...)
