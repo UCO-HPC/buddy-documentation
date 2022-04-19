@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Slurm &mdash; buddy-docs  documentation</title>
+  <title>Slurm &mdash; buddy-documentation  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -30,7 +32,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> buddy-docs
+            <a href="../index.html">
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -105,7 +108,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">buddy-docs</a>
+          <a href="../index.html">buddy-documentation</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -126,15 +129,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="slurm">
+  <section id="slurm">
 <h1>Slurm<a class="headerlink" href="#slurm" title="Permalink to this headline"></a></h1>
-<div class="section" id="terminology">
+<section id="terminology">
 <h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline"></a></h2>
-<div class="section" id="tasks">
+<section id="tasks">
 <h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline"></a></h3>
 <p>A task is a command which is run in parallel by slurm using srun. Tasks can be used to run more than one command at the same time instead of one after the other, increasing performance</p>
-</div>
-<div class="section" id="partitions">
+</section>
+<section id="partitions">
 <h3>Partitions<a class="headerlink" href="#partitions" title="Permalink to this headline"></a></h3>
 <p>Partitions are an organizational structure in slurm which allows nodes to be grouped together and for certain options and restrictions to be placed on them. We have a few partitions on Buddy:</p>
 <div class="admonition note">
@@ -185,23 +188,23 @@
 </tbody>
 </table>
 <p>We recommend that you use the partition that is most appropriate to your application.</p>
-</div>
-<div class="section" id="cores">
+</section>
+<section id="cores">
 <h3>Cores<a class="headerlink" href="#cores" title="Permalink to this headline"></a></h3>
 <p>Each node has 20 cores so the product of –tasks-per-node and –cpus-per-task should not exceed 20</p>
-</div>
-</div>
-<div class="section" id="commands">
+</section>
+</section>
+<section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline"></a></h2>
 <p>sbatch          used allocate resource and run the given script using slurm
 srun            used withing an sbatch file to run a command as a parallel task
 smap            displays the jobs currently running on the cluster
 sinfo           displays information about down and running nodes aswell as partition information</p>
-</div>
-<div class="section" id="sbatch-parameters">
+</section>
+<section id="sbatch-parameters">
 <h2>Sbatch Parameters<a class="headerlink" href="#sbatch-parameters" title="Permalink to this headline"></a></h2>
 <p>Sbatch parameters are used to control the way jobs are submitted and run on buddy</p>
-<div class="section" id="common-sbatch-parameters">
+<section id="common-sbatch-parameters">
 <h3>Common sbatch parameters<a class="headerlink" href="#common-sbatch-parameters" title="Permalink to this headline"></a></h3>
 <table class="docutils align-default">
 <colgroup>
@@ -268,9 +271,9 @@ maximum can also be set like: –nodes=10-12</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
@@ -283,7 +286,7 @@ maximum can also be set like: –nodes=10-12</p></td>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2021, tdunn3.</p>
+    <p>&#169; Copyright 2022, CREIC.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

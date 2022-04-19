@@ -4,7 +4,7 @@ About
 Buddy is a supercomputer managed by `CREIC <https://www.uco.edu/cms/research-centers/creic/>`_ and funded by the National Science Foundation. The following is a break down of our system
 
 .. csv-table:: Buddy Nodes 
-   :file: _static/tables/buddy_nodes.csv
+   :file: "tables/buddy_nodes.csv"
    :widths: 30,70
    :header-rows: 1
 

@@ -72,6 +72,9 @@ html_theme_options = {
     "logo_only": True,
     # Collapse navigation (False makes it tree-like)
     "collapse_navigation": False,
+    # Scroll navigation with page
+    "sticky_navigation": True,
+    
 }
 
 # These folders are copied to the documentation's HTML output
