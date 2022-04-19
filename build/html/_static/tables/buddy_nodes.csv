@@ -1,7 +1,0 @@
-Name,Quantity,Node Type,Cores,RAM,Features
-buddy.uco.edu,1,Login,2x8,64GB,Open OnDemand
-buddy-##,31,Compute,2x10,64GB,Compute
-buddy-high-mem-##,4,High Memory,2x10,128GB,High Memory
-Buddy-gpu-##,2,GPU,2x10,64GB,Tesla K40
-buddy-dtn-##,2,Data Transfer,2x8,64GB,OFFN+Globus
-Storage-ib,1,Storage,2x8,64GB,Home/Project Storage
