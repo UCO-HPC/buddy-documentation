@@ -188,6 +188,54 @@ Much like the text editor, the terminal also has a theme option. To learn more a
 Job Management
 **************
 
+Jobs Management can be accessed by going to Jobs>Active Jobs. This allows users to manage their slurm jobs, as well as see jobs from other users running on the cluster. Please see our Slurm section for more information about jobs. Please note that this application is paginated, and you may need to mark to show more entires or click through available pages using the navigation at the bottom.
+
+.. #TODO: Add a link to "Slurm Jobs"
+
+.. image:: /_static/img/ondemand_active_jobs.png
+  :width: 100%
+  :align: center
+  :alt: Buddy OnDemand Active Jobs
+
+|
+
+View Options
+^^^^^^^^^^^^
+
+There are a few options to adjust your current view within the Active Jobs application.
+
+.. image:: /_static/img/ondemand_active_jobs_view.png
+  :width: 100%
+  :align: center
+  :alt: Buddy OnDemand Active Jobs View Options
+
+|
+
+* **Your Jobs/All Jobs**: Toggles wether you want to view only your jobs, or all jobs on the cluster
+* **All Clusters/Buddy**: Chooses which cluster's active jobs will show. Since there is only one cluster, Buddy, this option is currently irrelevant.
+* **Filter**: Filter displayed jobs via keywords
+* **Show ## Entries**: Change the number of entries to show on a single page
+
+Job Context Menu
+^^^^^^^^^^^^^^^^
+
+All jobs have an associated context menu that can be seen be clicking the arrow next to the job. Note the below screenshot is what will be seen for self owned jobs. Jobs owned by other users will be lacking many of these options as you don't have permission to modify them.
+
+.. image:: /_static/img/ondemand_active_jobs_context.png
+  :width: 100%
+  :align: center
+  :alt: Buddy OnDemand Active Jobs Context Menu
+
+|
+
+* **Red Trash Bin**: Cancel your current job
+* **Job Status**: Status of your current Slurm job. Possible states include Running, Pending, Completing, and Cancelled. Please see our page on Slurm for more information. 
+* **Open in File Manager**: Opens the job working directory in the OnDemand file browser. This makes tasks such as viewing job output more convienent. 
+* **Open in Terminal**: Opens the job working directory in the OnDemand terminal
+* **Delete**: Cancels the job selected
+
+.. #TODO: Add links to slurm documentation references
+
 Job Composer
 ************
 
