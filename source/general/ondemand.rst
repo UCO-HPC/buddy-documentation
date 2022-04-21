@@ -73,7 +73,7 @@ Certain applications contain other options. For example, Jupyter let's you choos
 File Browser
 ************
 
-Ondemand offers a built in file browser. You can access it by going to Files>Home Directory. The file browser has options to upload files, edit text files, general file management, and more all within the web browser!
+Ondemand offers a built in file browser. You can access it by going to Files>Home Directory. The file browser has options to upload files, edit text files, general file management, and more all within the web browser! Applications like Filezilla are no longer needed to move data to and from Buddy. 
 
 .. image:: /_static/img/ondemand_file_browser.png
   :width: 100%
@@ -171,6 +171,19 @@ There are a number of options available within the editor
 
 Terminal Access
 ***************
+
+A terminal can be accessed by going to Clusters>Buddy Shell Access. This terminal is web based will open a terminal in a new window. This means that applications like Putty are no longer needed to access Buddy.
+
+.. image:: /_static/img/ondemand_terminal.png
+  :width: 100%
+  :align: center
+  :alt: Buddy OnDemand Terminal
+
+|
+
+Much like the text editor, the terminal also has a theme option. To learn more about bash Linux terminal, see our starter guide. 
+
+.. #TODO: Add a link to the "Using The Terminal" section.
 
 Job Management
 **************
