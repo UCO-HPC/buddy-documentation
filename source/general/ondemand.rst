@@ -158,12 +158,21 @@ OnDemand has a built in file editor that you can use to modify any text based fi
 
 There are a number of options available within the editor
 
+File Options
+^^^^^^^^^^^^
+
 * **Save**: Saves your currently open file
 * **Path**: Shows the name and location of the file you currently have open
+
+Editor Options
+^^^^^^^^^^^^^^
+
 * **Key Bindings**: Allows for special key bindings
-  - **Default**: This option is best for most users as this is the standard set of key bindings to which desktop users are accustom.
-  - **Vim**: VIM types bindings, including common modes such as command, insert, replace, and block. This mode is not recommended unless you use VIM. 
-  - **Emacs**: Emacs type bindings. This mode is not recommended unless you use Emacs.
+  
+   * **Default**: This option is best for most users as this is the standard set of key bindings to which desktop users are accustom.  
+   * **Vim**: VIM types bindings, including common modes such as command, insert, replace, and block. This mode is not recommended unless you use VIM. 
+   * **Emacs**: Emacs type bindings. This mode is not recommended unless you use Emacs.
+
 * **Font Size**: Size of font displayed within the editor
 * **Mode**: This is typically automatically selected based on your file extension. The mode controls syntax highlighting and can help to discern elements when performing tasks like writing a script.
 * **Theme**: Changes how your text editor looks. Both light and dark themes are available.
@@ -181,9 +190,9 @@ A terminal can be accessed by going to Clusters>Buddy Shell Access. This termina
 
 |
 
-Much like the text editor, the terminal also has a theme option. To learn more about bash Linux terminal, see our starter guide. 
+Much like the text editor, the terminal also has a theme option. To learn more about bash and common Linux commands, see our guide on the terminal and Slurm. 
 
-.. #TODO: Add a link to the "Using The Terminal" section.
+.. #TODO: Add a link to the "Using The Terminal" and "Slurm" section.
 
 Job Management
 **************
@@ -239,4 +248,68 @@ All jobs have an associated context menu that can be seen be clicking the arrow 
 Job Composer
 ************
 
+The Job Composer can be accessed by going to Jobs>Job Composer and open in a new tab. Job Composer allows for creating and running slurm jobs from within your browser. Some users may find this more convienent than using the terminal to run slurm jobs. 
+
+Overview
+^^^^^^^^
+
+.. image:: /_static/img/ondemand_composer.png
+  :width: 100%
+  :align: center
+  :alt: Buddy OnDemand Job Composer
+
+|
+
+
+The Job Composer's main screen offers a number of options.
+
+* **+New Job**: Create a new job from one of the following
+
+   * **From Default Template**: Creates a new job from the default template
+   * **From Template**: Creates a new job from a pre-defined template
+   * **From Specified Path**: Creates a new job from files within a specified directory
+   * **From Selected Jobs**: Copies the currently selected job into a new job.
+
+* **Create Template**: Create a new template from the current job. There are a few options that need set.
+
+  * **Path**: Path of folder to be used to generate the template
+  * **Name**: Name of the job template
+  * **Cluster**: Name of the cluster the job will run on by default. Buddy is the only cluster, so this option is irrelevant. 
+  * **Notes**: Notes for the job written in HTMl markup.
+
+* **Edit Files**: Open the currently selected job in the file browser to edit and manage job files. You can use this to upload new inoput files or modify job scripts
+* **Job Options**: Opens a dialogue within your current window to set various job options
+
+   * **Name**: Name of your job
+   * **Cluster**: Name of the cluster your job will run on. Since we only have one cluster, Buddy, this option is irrelevant. 
+   * **Specify Job Script**: Specify the name of the script to be executed when the submit button is pressed within the job composer.
+   * **Account**: We do not currently use accounting. Please leave this field blank. 
+   * **Job Array Specification**: Please see Advanced Slurm topics for more information on configuring arrays.
+
+* **Open Terminal**: Open the current job's folder in the the terminal. This is a faster option for managing job files for those familiar with bash.
+* **Submit**: Submit the selected job to the cluster
+* **Stop**: Cancel the running of a selected job
+* **Delete**: Delete the current job from job composer
+* **Job Details**: Details regarding the current job. Use the "Job Options" button to modify these fields. 
+* **Submit Script**: Details of the script being used. Options in this field include
+
+   * **Open Editor**: Opens the job script in the file editor
+   * **Open Terminal**: Opens the job folder in the terminal
+   * **Open Dir**: Opens the job folder in the file browser
+
+Creating Jobs
+^^^^^^^^^^^^^
+
+This will only go over creating jobs from scratch. To create a job from a template, please see the template section.
+
+
+
+Templates
+^^^^^^^^^
+
+Editing Job Files
+^^^^^^^^^^^^^^^^^
+
+Managing Jobs
+^^^^^^^^^^^^^
 
