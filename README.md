@@ -27,6 +27,8 @@ Installing required Python packages with pip
 The make command will be run from the project root directory. Resulting files will be placed in build
 
 Compile: `` make clean html ``
+
+Auto Compile: `` make clean livehtml ``
  
 View: `` firefox build/html/index.html & ``
 
