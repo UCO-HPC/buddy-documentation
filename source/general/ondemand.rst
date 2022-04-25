@@ -8,7 +8,7 @@ Open OnDemand is our new and improved interface for accessing HPC resources on B
   :alt: Buddy OnDemand Home Page
 
 Access and Login
-****************
+----------------
 
 OnDemand can be accessed by visiting https://buddy.uco.edu. You will login using the credentials provided by CREIC. If you do not already have an account, or you require a password reset, please email hpc@uco.edu for assistance. Please note that while the username may match yours at uco, this account is not connected to your UCO credentials.
 
@@ -20,7 +20,7 @@ OnDemand can be accessed by visiting https://buddy.uco.edu. You will login using
 |
 
 Interactive Applications
-************************
+------------------------
 
 Buddy has a number of interactive applications available for use. You can access them via the interactive apps tab, or by clicking "My Interactive Sessions"
 
@@ -37,41 +37,41 @@ As an example, we will access Jupyter. Below is what the application will most l
   :alt: Buddy OnDemand Nav Interactive Apps
 
 Queue
-^^^^^
+~~~~~
 
 Allows you to select the queue your application will run on. General is typical for most jobs. GPU and High Memory are available for specialized work loads, but there are a limited number of nodes with these resources.
 
 Number of Hours
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 This is the number of hours your interactive application will run for. Please note there is a 48 hour limit on all interactive app jobs. If you require longer runtimes, please utilize a SLURM script.
 
 .. #TODO: Add link to SLURM script section 
 
 Number of Cores
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Number of cores for your job. You can reserve up to 20, but only use the minimum required. Two is typically best for classroom jobs, and most research jobs. Twenty will reserve the entire node for just that application. This should only be done when absolutely needed. 
 
 Version
-^^^^^^^
+~~~~~~~
 
 This selects the version of the application you wish to run. Most often, you will want to pick the latest version, unless you have some need that requires an older revision.
 
 Additonal Modules
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
 Additional modules can be added here. This utilizes LMOD, and will automatically load the user supplied list of modules. Please be sure your modules toolchain version matches the toolchain of your software version. You can read more in the module section about toolchains.
 
 .. #TODO: Add a link to the module section
 
 Other Options
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Certain applications contain other options. For example, Jupyter let's you choose between a Lab or Notebook session. Jupyter also offers ready to select module groups like "Data Science".  
 
 File Browser
-************
+------------
 
 Ondemand offers a built in file browser. You can access it by going to Files>Home Directory. The file browser has options to upload files, edit text files, general file management, and more all within the web browser! Applications like Filezilla are no longer needed to move data to and from Buddy. 
 
@@ -83,7 +83,7 @@ Ondemand offers a built in file browser. You can access it by going to Files>Hom
 |
 
 Top Menu
-^^^^^^^^
+~~~~~~~~
 
 Most file tasks can be performed via the menu in the upper left.
 
@@ -106,7 +106,7 @@ Most file tasks can be performed via the menu in the upper left.
   File deletion is permanent on Buddy, both in the file browser and terminal! There is no "trash". In addition, files cannot be recovered due to the nature of Buddy.
 
 Navigation Menu
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 The navigation menu allows has additional navigation options that some users may find useful
 
@@ -126,7 +126,7 @@ The navigation menu allows has additional navigation options that some users may
 * **Filter**: Filter current files and folders by name
 
 File Context Menu
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
 The file context menu provides a number of operations that mose users will find useful
 
@@ -145,7 +145,7 @@ The file context menu provides a number of operations that mose users will find 
 .. #TODO: Add a link to the text editor section
 
 File Editor
-***********
+-----------
 
 OnDemand has a built in file editor that you can use to modify any text based file. This is perfect for modifying scripts, input data, and a number of other tasks. 
 
@@ -159,13 +159,13 @@ OnDemand has a built in file editor that you can use to modify any text based fi
 There are a number of options available within the editor
 
 File Options
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 * **Save**: Saves your currently open file
 * **Path**: Shows the name and location of the file you currently have open
 
 Editor Options
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 * **Key Bindings**: Allows for special key bindings
   
@@ -179,7 +179,7 @@ Editor Options
 * **Word Wrap**: Marks whether to wrap words. This prevents having to scroll horizontally for extremely long lines. 
 
 Terminal Access
-***************
+---------------
 
 A terminal can be accessed by going to Clusters>Buddy Shell Access. This terminal is web based will open a terminal in a new window. This means that applications like Putty are no longer needed to access Buddy.
 
@@ -195,7 +195,7 @@ Much like the text editor, the terminal also has a theme option. To learn more a
 .. #TODO: Add a link to the "Using The Terminal" and "Slurm" section.
 
 Job Management
-**************
+--------------
 
 Jobs Management can be accessed by going to Jobs>Active Jobs. This allows users to manage their slurm jobs, as well as see jobs from other users running on the cluster. Please see our Slurm section for more information about jobs. Please note that this application is paginated, and you may need to mark to show more entires or click through available pages using the navigation at the bottom.
 
@@ -209,7 +209,7 @@ Jobs Management can be accessed by going to Jobs>Active Jobs. This allows users 
 |
 
 View Options
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 There are a few options to adjust your current view within the Active Jobs application.
 
@@ -226,7 +226,7 @@ There are a few options to adjust your current view within the Active Jobs appli
 * **Show ## Entries**: Change the number of entries to show on a single page
 
 Job Context Menu
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 All jobs have an associated context menu that can be seen be clicking the arrow next to the job. Note the below screenshot is what will be seen for self owned jobs. Jobs owned by other users will be lacking many of these options as you don't have permission to modify them.
 
@@ -246,12 +246,12 @@ All jobs have an associated context menu that can be seen be clicking the arrow 
 .. #TODO: Add links to slurm documentation references
 
 Job Composer
-************
+------------
 
 The Job Composer can be accessed by going to Jobs>Job Composer and open in a new tab. Job Composer allows for creating and running slurm jobs from within your browser. Some users may find this more convienent than using the terminal to run slurm jobs. 
 
 Overview
-^^^^^^^^
+~~~~~~~~
 
 .. image:: /_static/img/ondemand_composer.png
   :width: 100%
@@ -298,7 +298,7 @@ The Job Composer's main screen offers a number of options.
    * **Open Dir**: Opens the job folder in the file browser
 
 Creating Job From Template
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Here we will look at creating a job from a template. The process is roughly the same for a default template as well. This example will use Gaussian. Please see the Software and Slurm sections of the documentation for details on writing Slurm scripts and how to use your desired application. 
 
@@ -333,7 +333,7 @@ Here we will look at creating a job from a template. The process is roughly the 
 4. Once everything is setup, we can click submit job. If everything goes as expected, you should see the job pass through several states, eventually reaching completion. To stop a job, simply press the stop button. Output can be viewed by pressing the "Open Dir" button in the bottom right, or using the edit button in the upper left. Should a job not complete as expected.
 
 Modifying Job Options
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 Certain job options can be modifying by selecting the desired job and clicking "Job Options".
 
@@ -362,7 +362,7 @@ Job options will be opened within your current window.
 You can reset any changes made with the reset button, or by clicking back.
 
 Saving and Managing Templates
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 User's can save and manage Templates under the "Templates" tab of the Job Composer. System provided Job Composer templates are only available for a limited number of software. We are currently working to add more to OnDemand. Generic Slurm templates are available under the Slurm section and specific templates are available in the SOFTWARE section.
 
