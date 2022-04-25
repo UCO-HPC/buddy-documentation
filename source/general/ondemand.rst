@@ -297,19 +297,103 @@ The Job Composer's main screen offers a number of options.
    * **Open Terminal**: Opens the job folder in the terminal
    * **Open Dir**: Opens the job folder in the file browser
 
-Creating Jobs
-^^^^^^^^^^^^^
+Creating Job From Template
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This will only go over creating jobs from scratch. To create a job from a template, please see the template section.
+Here we will look at creating a job from a template. The process is roughly the same for a default template as well. This example will use Gaussian. Please see the Software and Slurm sections of the documentation for details on writing Slurm scripts and how to use your desired application. 
+
+1. Select "From Template" from the "New Job" menu.
+ 
+.. image:: /_static/img/ondemand_composer_create_01.png
+  :width: 25%
+  :align: center
+  :alt: Buddy OnDemand Job Composer Create
+
+|
+
+2. From the template screen, select the desired template and click "Create New Job" from the right hand pane. For this example, we will select the Gaussian template. Be sure to also set the desired job name. We will ignore the Cluster option, as Buddy is currently the only available cluster. 
+
+ 
+.. image:: /_static/img/ondemand_composer_create_02.png
+  :width: 100%
+  :align: center
+  :alt: Buddy OnDemand Job Composer Create
+
+|
+
+3. We will now need to make some modifications to our script and upload the input file we want. Select your job and click "Edit Files" on the left side. This will open the file browser in a new window. Upload your input files and edit the Slurm script accordingly. Please see the File Browser and File Editor section of the documentation. Please also see the Slurm documentation for writing your script. 
+ 
+.. image:: /_static/img/ondemand_composer_create_03.png
+  :width: 75%
+  :align: center
+  :alt: Buddy OnDemand Job Composer
+
+|
+
+4. Once everything is setup, we can click submit job. If everything goes as expected, you should see the job pass through several states, eventually reaching completion. To stop a job, simply press the stop button. Output can be viewed by pressing the "Open Dir" button in the bottom right, or using the edit button in the upper left. Should a job not complete as expected.
+
+Modifying Job Options
+^^^^^^^^^^^^^^^^^^^^^
+
+Certain job options can be modifying by selecting the desired job and clicking "Job Options".
+
+.. image:: /_static/img/ondemand_job_options_01.png
+  :width: 70%
+  :align: center
+  :alt: Buddy OnDemand Job Composer
+
+|
+
+Job options will be opened within your current window. 
+
+.. image:: /_static/img/ondemand_job_options_02.png
+  :width: 100%
+  :align: center
+  :alt: Buddy OnDemand Job Composer
+
+|
+
+* **Name**: Name of your job
+* **Cluster**: Name of the cluster your job will run on. Since we only have one cluster, Buddy, this option is irrelevant. 
+* **Specify Job Script**: Specify the name of the script to be executed when the submit button is pressed within the job composer.
+* **Account**: We do not currently use accounting. Please leave this field blank. 
+* **Job Array Specification**: Please see Advanced Slurm topics for more information on configuring arrays.
+
+You can reset any changes made with the reset button, or by clicking back.
+
+Saving and Managing Templates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+User's can save and manage Templates under the "Templates" tab of the Job Composer. System provided Job Composer templates are only available for a limited number of software. We are currently working to add more to OnDemand. Generic Slurm templates are available under the Slurm section and specific templates are available in the SOFTWARE section.
 
 
+.. image:: /_static/img/ondemand_template_tab.png
+  :width: 75%
+  :align: center
+  :alt: Buddy OnDemand Templates
 
-Templates
-^^^^^^^^^
+|
 
-Editing Job Files
-^^^^^^^^^^^^^^^^^
+New templates can be created either by starting one from scratch or by copying a current template. Template files can aslo be modified from this view.
 
-Managing Jobs
-^^^^^^^^^^^^^
+.. image:: /_static/img/ondemand_template_view.png
+  :width: 100%
+  :align: center
+  :alt: Buddy OnDemand Templates
+
+|
+
+.. note::
+  The scope of this section is **extremely** limited. A more in depth walk through of utilizing the template feature will eventually be provided under the ADVANCED section of this documentation. 
+
+* **New Template/Copy Template**: Create or copy a template for use.
+
+  * **Path**: Path that contains your desired default tmeplate files. They should include a runtime script, relative input files, and manifest.yml. Please note the manifest.yml, while important, is nopt covered in this document. Please view another templates folder to see how this is constructed or email UCO's HPC support.
+  * **Name**: Name of the template  
+  * **Cluster**: Name of the cluster your job will run on. Since we only have one cluster, Buddy, this option is irrelevant.
+  * **Notes**: Notes about the job script template.
+
+* **Delete**: Delete a selected template. You may only delete user created templates as System Templates are managed by CREIC. 
+
+.. #TODO: Add links to the referenced documentation
 
