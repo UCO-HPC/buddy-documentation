@@ -8,8 +8,8 @@ Buddy Docs
    :glob:
 
    quickstart/about.rst
-   quickstart/connection.rst
    quickstart/etiquette.rst
+   quickstart/connection.rst
 
 .. toctree::
    :maxdepth: 2
@@ -23,6 +23,7 @@ Buddy Docs
    general/data_storage.rst
    general/data_transfer.rst
    general/requests.rst
+   general/tips.rst
 	  
 .. toctree::
    :maxdepth: 2
