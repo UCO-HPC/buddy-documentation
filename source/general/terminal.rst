@@ -1,7 +1,7 @@
 Using the Terminal
 ==================
 
-The Linux command line is one of two methods for accessing Buddy resources. It's features, power, and flexibility are essential for those wishing to properly utilize the cluster. While the terminal may seem confusing, many of it's aspects are straightfoward.
+The Linux command line is one of two methods for accessing Buddy resources. It's features, power, and flexibility are essential for those wishing to properly utilize the cluster. While the tvigation erminal may seem confusing, many of it's aspects are straightfoward.
 
 Background
 ----------
@@ -51,38 +51,158 @@ SSH access is also available for users who desire to use a preffered terminal em
 
 * **Windows**
 
-  * **Powershell**: Powershell is a built in Windows terminal emulator that uses the Powershell language. You can access it via your start menu and connect Buddy by using the command ``ssh username@buddy.uco.edu``
-  * **Putty**: Putty is a popular option for Windows and can be downloaded from the Putty website. 
-  * **MobaXTerm**: MobaXTerm is another common software and can be downloaded form the Moba website.
-  * **WinSCP**: WinSCP is a software that is not for SSH, but rather file transfer over SCP.
+  * `Powershell`_: Powershell is a built in Windows terminal emulator that uses the Powershell language. You can access it via your start menu and connect Buddy by using the command ``ssh username@buddy.uco.edu``
+  * `Putty`_: Putty is a popular option for Windows and can be downloaded from the Putty website.
+  * `MobaXTerm`_: MobaXTerm is another common software and can be downloaded form the Moba website.
+  * `WinSCP`_: WinSCP is a software that is not for SSH, but rather file transfer over SCP.
 
 * **OSX**
 
-  * **Terminal**: OSX has it's own built in terminal emulator. It can be accessed from your utility folder and you can connect to Buddy with the command ``ssh username@buddy.uco.edu``.
+  * `Terminal`_: OSX has it's own built in terminal emulator. It can be accessed from your utility folder and you can connect to Buddy with the command ``ssh username@buddy.uco.edu``.
+  * `Finder`_: Your file browser in Mac OS can be used to directly connect Buddy for file transfer. You will want to connect to ``sftp://username@buddy.uco.edu``.
 
 .. warning::
   **Filezilla is no longer recommended** as it's installer comes bundled with other software! While the bundled offer is not malicious, this can be considered undesireable as the bundled application is installed in a deceptive manner and can interfere with your anti-virus.
 
+.. _Powershell: https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7.2
+.. _Putty: https://www.putty.org/
+.. _MobaXTerm: https://mobaxterm.mobatek.net/
+.. _WinSCP: https://winscp.net/eng/index.php
+.. _Terminal: https://www.servermania.com/kb/articles/ssh-mac/
+.. _Finder: https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/mac
+
 Terminal Basics
 ---------------
+
+This section will teach everyday commands that will be used regularly in the terminal. On a terminal, you don't have a file browser, word, or any other "GUI" application. But that doesn't mean it is difficult to use. While there is a learning curve, once common commands are memorized, it's as easy as riding a bike.
 
 Navigation
 ~~~~~~~~~~
 
-Creating Files and Directories
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Navigating files and folders is a fundamental aspect of using any computer. But within the terminal, we are not automatically shown what we want to see. We have to be more explicit. 
 
-Copy, Move, Rename, and Delete
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Let's start by viewing the contents of our current folder using the "list" command. 
 
-Editing Files
--------------
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
+
+Let's pass an "option" to our list command. We will give our "list" command a "list" option.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls -l
+  total 4
+  -rw-r--r-- 1 skelting1 skelting1 635 Apr 21 13:13 batchjob.sh
+  drwxr-xr-x 2 skelting1 skelting1  10 Apr 21 11:37 Data_Folder_01
+  drwxr-xr-x 2 skelting1 skelting1  10 Apr 21 11:37 Data Folder 02
+  -rw-r--r-- 1 skelting1 skelting1   0 Apr 21 11:37 slurm_output.txt
+
+There's a lot of information to unpack here. For now, we will share that the date and time shows when a file was modified last. 
+
+This is all well and good, but where are we? Let's "Print (our) Working Directory"
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ pwd
+  /home/skelting1/
+
+This path is our home folder. The username will of course differ. Your home folder is where all of your files will be stored on Buddy. When you login, this is the first folder you will see. But what if we want to access our other folders? Let's "Change Directory"
+
+.. code-block:: console
+  
+  [skelting1@buddy ~]$ cd Data_Folder_01
+  [skelting1@buddy Data_Folder_01]$ pwd
+  /home/skelting1/Data_Folder_01
+
+.. warning::
+
+  Linux is CaSe SeNsItIvE! Failure to match case will result in your commands not working. 
+
+You'll notice our prompt changes to show our current folder. Looking even closer, you'll notice we started with a ~ as our current folder. This is because the ~ is a special symbol to represent our home folder. We can even get back into the home folder by changing our directory to it.
+
+.. code-block:: console
+ 
+  [skelting1@buddy Data_Folder_01]$ cd ~
+  [skelting1@buddy ~]$ pwd
+  /home/skelting1/
+
+Neat! But what if we are several folders in and just want to go up a folder? Let's see how that would work.
+
+.. code-block:: console
+  
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
+  [skelting1@buddy ~]$ cd Data_Folder_01
+  [skelting1@buddy Data_Folder_01]$ ls
+  data-set-01.dat  data-set-02.dat  meta
+  [skelting1@buddy Data_Folder_01]$ cd meta
+  [skelting1@buddy meta]$ ls
+  info.json
+  [skelting1@buddy meta]$ pwd
+  /home/skelting1/Documents/Data_Folder_01/meta
+
+One option for going up a folder is to give our ``cd`` command the ``/home/skelting1/Documents/Data_Folder_01/`` path. But this is highly inefficient. Let's examine another special folder. We will need to add another option to our "list" command to see what they are.
+
+.. code-block:: console
+
+  [skelting1@buddy meta]$ ls -a
+  .  ..  info.json
+
+The "All" option for ``ls`` shows us some directories we couldn't see before. One is a directory named ``.`` and the other is a directory named ``..``. ``.`` represents the current directory, and ``..`` represents the directory above it. Going up a directory is as easy as
+
+.. code-block:: console
+
+  [skelting1@buddy meta]$ cd ..
+  [skelting1@buddy Data_Folder_01]$  
+
+You'll notice if you try to change directory to ``.`` that nothing really happens. This is the intended behaviour as we are changing directory to our current directory. Which of course leaves us in the same place! Let's go back to our home folder and review a special case you will most likely encounter.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
+
+You'll notice that one of our folder names has spaces in it. This is generally not recommended froma convienence standpoint, but it happens often for one reason or another. If we try to cd into this folder, odd things happen.
+
+.. code-block:: console
+  
+  [skelting1@buddy ~]$ cd Data Folder 02
+  -bash: cd: Data: No such file or directory
+
+Our ``cd`` command only wants to take the first argument. In order to read spaces, we have to use what's called an "Escape Character". This is simply a backslash ``\``, not to be confused with the forward-slash ``/`` we use for paths. So how is the escape character used?
+
+.. code-block:: console
+
+  [skelting1@buddy Documents]$ cd Data\ Folder\ 02
+  [skelting1@buddy Data Folder 02]$ 
+
+This may not seem intuitive to some users, so there is also the option of putting the path in quotes.
+
+.. code-block:: console
+
+  [skelting1@buddy Documents]$ cd "Data Folder 02"
+  [skelting1@buddy Data Folder 02]$ 
+
+.. note:: 
+
+  You may find yourself annoyed by having to always type out these paths completely. Thankfully, you can use the ``Tab`` key to auto-complete. If you press tab and nothing happens, either there is nothing beginning with that name, there are more than one items starting with that particular set of charachters, or you've made a syntax error. You may try hitting ``Tab`` three times to show available options. Alternatively, backspace over your command and type ``ls`` and/or ``pwd`` to ensure you are in the right directory and the item is actually in there. 
+
+Creating and Deleting Files and Directories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Copy, Move, and Rename
+~~~~~~~~~~~~~~~~~~~~~~
+
+Editing  Files
+--------------
 
 Nano
 ~~~~
 
-VIM
-~~~
 
 Common Commands and Features
 ----------------------------
@@ -104,6 +224,9 @@ File Permissions and Information
 
 Downloading Files
 ~~~~~~~~~~~~~~~~~
+
+Tips and Tricks
+---------------
 
 Basic Scripting
 ---------------
