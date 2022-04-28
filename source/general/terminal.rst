@@ -81,14 +81,14 @@ Navigation
 
 Navigating files and folders is a fundamental aspect of using any computer. But within the terminal, we are not automatically shown what we want to see. We have to be more explicit. 
 
-Let's start by viewing the contents of our current folder using the "list" command. 
+Let's start by viewing the contents of our current folder using the "LiSt" command. 
 
 .. code-block:: console
 
   [skelting1@buddy ~]$ ls
   batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
 
-Let's pass an "option" to our list command. We will give our "list" command a "list" option.
+Let's pass a "List" option to our "LiSt" command.
 
 .. code-block:: console
 
@@ -141,9 +141,9 @@ Neat! But what if we are several folders in and just want to go up a folder? Let
   [skelting1@buddy meta]$ ls
   info.json
   [skelting1@buddy meta]$ pwd
-  /home/skelting1/Documents/Data_Folder_01/meta
+  /home/skelting1/~/Data_Folder_01/meta
 
-One option for going up a folder is to give our ``cd`` command the ``/home/skelting1/Documents/Data_Folder_01/`` path. But this is highly inefficient. Let's examine another special folder. We will need to add another option to our "list" command to see what they are.
+One option for going up a folder is to give our ``cd`` command the ``/home/skelting1/~/Data_Folder_01/`` path. But this is highly inefficient. Let's examine another special folder. We will need to add another option to our "LiSt" command to see what they are.
 
 .. code-block:: console
 
@@ -175,14 +175,14 @@ Our ``cd`` command only wants to take the first argument. In order to read space
 
 .. code-block:: console
 
-  [skelting1@buddy Documents]$ cd Data\ Folder\ 02
+  [skelting1@buddy ~]$ cd Data\ Folder\ 02
   [skelting1@buddy Data Folder 02]$ 
 
 This may not seem intuitive to some users, so there is also the option of putting the path in quotes.
 
 .. code-block:: console
 
-  [skelting1@buddy Documents]$ cd "Data Folder 02"
+  [skelting1@buddy ~]$ cd "Data Folder 02"
   [skelting1@buddy Data Folder 02]$ 
 
 .. note:: 
@@ -192,23 +192,82 @@ This may not seem intuitive to some users, so there is also the option of puttin
 Creating and Deleting Files and Directories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Often, it is needed to make a new directory. To do this we use the "MaKe DIRectory" command. As previously discussed, it is suggested to not name directories with spaces.
 
+.. code-block:: console
+
+  [skelting1@buddy ~]$ mkdir Data_Folder_03
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02  Data_Folder_03  slurm_output.txt
+
+To delete a directory, we simply use the "ReMove DIRectory" command.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ rmdir Data_Folder_03
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
+
+This isn't always the best option. Especially considering it fails to work of your directory contains file within it. For that reason, the "ReMove" command is generally recommended. This works for both files and directories. Notice that to remove a directory, we must pass a "Recursive" option, but a file doesn't require it.
+
+.. code-block:: console
+ 
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02  Data_Folder_03 slurm_output.txt  
+  [skelting1@buddy ~]$ rm slurm_output.txt
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02  Data_Folder_03
+  [skelting1@buddy ~]$ rm -r Data_Folder_03
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02
+  
+.. warning::
+
+  The ``rm`` command is permanent!! There is no trashcan to restore files from, and data recovery is not possible. Please be careful when using this command. Remember, think twice, hit enter once.
+
+You may notice that if the directory is filled with files, it may prompt you about deleting each and every file. If this is the case, we can use the "Force" option. 
+
+.. code-block:: console
+  
+  [skelting1@buddy ~]$ rm -r -f Data_Folder_03
+
+There may be instances when you want to create a blank file. Do do this, we use the touch command
+
+.. code-block:: console
+  
+  [skelting1@buddy ~]$ touch script.sh
+  [skelting1@buddy ~]$ ls
+  batchjob.sh  Data_Folder_01  Data Folder 02  script.sh  slurm_output.txt
 
 Copy, Move, and Rename
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Editing  Files
---------------
+Often times, we want to replicate files and folders on our system. To do this, we use the "CoPy" command. For copying directories that contain files, we also want to include a "Rescursive" option. When using copy, we will first specify the source followed by the destination
 
-Nano
-~~~~
+.. code-block:: console
+
+   [skelting1@buddy ~]$ cp script.sh copy-of-script.sh
+   [skelting1@buddy ~]$ ls
+   batchjob.sh  copy-of-script.sh  Data_Folder_01  Data Folder 02  script.sh  slurm_output.txt
+   [skelting1@buddy ~]$ cp -r Data_Folder_01 Data_Folder_04
+   [skelting1@buddy ~]$ ls
+   batchjob.sh  copy-of-script.sh  Data_Folder_01  Data Folder 02  Data_Folder_04  script.sh  slurm_output.txt
+
+We can also copy files or directories into other directories
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ cp script.sh Data_Folder_01/script.sh
+  [skelting1@buddy ~]$ ls Data_Folder_01
+  data-set-01.dat  data-set-02.dat  meta  script.sh
+
 
 
 Common Commands and Features
 ----------------------------
 
-File Viewing and Pipes
-~~~~~~~~~~~~~~~~~~~~~~
+File Viewing/Editing and Pipes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Shortcuts
 ~~~~~~~~~
