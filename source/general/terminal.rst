@@ -1,18 +1,18 @@
 Using the Terminal
 ==================
 
-The Linux command line is one of two methods for accessing Buddy resources. It's features, power, and flexibility are essential for those wishing to properly utilize the cluster. While the tvigation erminal may seem confusing, many of it's aspects are straightfoward.
+The Linux command line is one of two methods for accessing Buddy resources. It's features, power, and flexibility are essential for those wishing to properly utilize the cluster. While the navigation terminal may seem confusing, many of it's aspects are straightforward.
 
 Background
 ----------
 
 When computer first came about, one of the first operating systems to arrive was Unix. It was designed to run as a multi-user system on mainframe computers, with users connecting to it remotely via individual terminals. These terminals were extremely simplistic and consisted primarily of a keyboard and screen. 
 
-Compared to graphics, text is very light on resources. Becuase of this, older machines could run dozens of terminals even across the slowest of networks. Despite the nature of terminals, users were still able to interact with programs quickly and efficiently. The commands were also kept very short to reduce the number of keystrokes needed, which sped up the use of the terminal even more. This speed and efficiency is one reason why this text interface is still widely used today.
+Compared to graphics, text is very light on resources. Because of this, older machines could run dozens of terminals even across the slowest of networks. Despite the nature of terminals, users were still able to interact with programs quickly and efficiently. The commands were also kept very short to reduce the number of keystrokes needed, which sped up the use of the terminal even more. This speed and efficiency is one reason why this text interface is still widely used today.
 
 When logged into a Unix mainframe via a terminal users still had to manage the sort of file management tasks that you might now perform with a mouse and a couple of windows. Whether creating files, renaming them, putting them into subdirectories or moving them around on disk, users could do everything entirely with a textual interface.
 
-Buddy utilizes an operating system called Linux. While it bears some similarities to Unix, it is most definitly not identical and has many major differences. Buddy's terminal operates using something called "Bash" for users to communicate via the command line. Bash is widely used on Linux systems, and is well documented. This page will cover some basic functions of Bash, including some simple scripting.
+Buddy utilizes an operating system called Linux. While it bears some similarities to Unix, it is most definitely not identical and has many major differences. Buddy's terminal operates using something called "Bash" for users to communicate via the command line. Bash is widely used on Linux systems, and is well documented. This page will cover some basic functions of Bash, including some simple scripting.
 
 Accessing the Terminal
 ----------------------
@@ -44,21 +44,21 @@ You will see the terminal in your web browser once you are logged in
 SSH Access
 ~~~~~~~~~~
 
-SSH access is also available for users who desire to use a preffered terminal emulator. You can ssh into buddy by connecting to ``username@buddy.uco.edu``. There are few applications available to utilize SSH
+SSH access is also available for users who desire to use a preferred terminal emulator. You can ssh into buddy by connecting to ``username@buddy.uco.edu``. There are few applications available to utilize SSH
 
 .. note::
   Please read the associated documentation for each of these softwares if you desire to use them. Users uncomfortable with this method of access are recommended to use the built in OnDemand terminal mentioned above for SSH and the OnDemand file browser for uploading and downloading files to Buddy.
 
 * **Windows**
 
-  * `Powershell`_: Powershell is a built in Windows terminal emulator that uses the Powershell language. You can access it via your start menu and connect Buddy by using the command ``ssh username@buddy.uco.edu``
+  * `Powershell`_: Powershell is a built in Windows terminal emulator that uses the Powershell language. You can access it via your start menu and connect Buddy by using the command ``ssh username@buddy.uco.edu``. You can exit the ssh prompt by typing ``exit``.
   * `Putty`_: Putty is a popular option for Windows and can be downloaded from the Putty website.
   * `MobaXTerm`_: MobaXTerm is another common software and can be downloaded form the Moba website.
   * `WinSCP`_: WinSCP is a software that is not for SSH, but rather file transfer over SCP.
 
 * **OSX**
 
-  * `Terminal`_: OSX has it's own built in terminal emulator. It can be accessed from your utility folder and you can connect to Buddy with the command ``ssh username@buddy.uco.edu``.
+  * `Terminal`_: OSX has it's own built in terminal emulator. It can be accessed from your utility folder and you can connect to Buddy with the command ``ssh username@buddy.uco.edu``. You can exit the ssh prompt by typing ``exit``.
   * `Finder`_: Your file browser in Mac OS can be used to directly connect Buddy for file transfer. You will want to connect to ``sftp://username@buddy.uco.edu``.
 
 .. warning::
@@ -87,6 +87,13 @@ Let's start by viewing the contents of our current folder using the "LiSt" comma
 
   [skelting1@buddy ~]$ ls
   batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
+
+You can view the contents of a directory by passing a file path to the "LiSt"
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls Data_Folder_01
+  data-set-01.dat  data-set-02.dat  meta
 
 Let's pass a "List" option to our "LiSt" command.
 
@@ -143,7 +150,7 @@ Neat! But what if we are several folders in and just want to go up a folder? Let
   [skelting1@buddy meta]$ pwd
   /home/skelting1/~/Data_Folder_01/meta
 
-One option for going up a folder is to give our ``cd`` command the ``/home/skelting1/~/Data_Folder_01/`` path. But this is highly inefficient. Let's examine another special folder. We will need to add another option to our "LiSt" command to see what they are.
+One option for going up a folder is to give our ``cd`` command the absolute path of the parent directory: ``/home/skelting1/Data_Folder_01/`` but, this is highly inefficient. Let's examine another special folder. We will need to add another option to our "LiSt" command to see what they are.
 
 .. code-block:: console
 
@@ -157,14 +164,24 @@ The "All" option for ``ls`` shows us some directories we couldn't see before. On
   [skelting1@buddy meta]$ cd ..
   [skelting1@buddy Data_Folder_01]$  
 
-You'll notice if you try to change directory to ``.`` that nothing really happens. This is the intended behaviour as we are changing directory to our current directory. Which of course leaves us in the same place! Let's go back to our home folder and review a special case you will most likely encounter.
+With the ``..`` relative path in your tool-belt you can go anywhere by building up a longer path. For example, to jump from a directory to a sibling directory, you could go up a directory and then down with two two separate commands or you can jump directly using one command
+
+.. code-block:: console
+
+  [skelting1@buddy meta]$ pwd
+  /home/skelting1/Data_Folder_01/meta
+  [skelting1@buddy meta]$ cd ../../Data_Folder_02
+  [skelting1@buddy Data_Folder_02]$ pwd
+  /home/skelting1/Data_Folder_02
+
+You'll notice if you try to change directory to ``.`` that nothing really happens. This is the intended behavior as we are changing directory to our current directory. Which of course leaves us in the same place! Let's go back to our home folder and review a special case you will most likely encounter.
 
 .. code-block:: console
 
   [skelting1@buddy ~]$ ls
   batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
 
-You'll notice that one of our folder names has spaces in it. This is generally not recommended froma convienence standpoint, but it happens often for one reason or another. If we try to cd into this folder, odd things happen.
+You'll notice that one of our folder names has spaces in it. This is generally not recommended from a convenience standpoint, but it happens often for one reason or another. If we try to ``cd`` into this folder, odd things happen.
 
 .. code-block:: console
   
@@ -220,7 +237,17 @@ This isn't always the best option. Especially considering it fails to work of yo
   [skelting1@buddy ~]$ rm -r Data_Folder_03
   [skelting1@buddy ~]$ ls
   batchjob.sh  Data_Folder_01  Data Folder 02
-  
+
+If you want to delete several similarly named files, like output files, you can replace the part that differs between the paths by a star which is called a wildcard.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls
+  data-001.out data-002.out data-003.out data-004.out foobar.out example.txt
+  [skelting1@buddy ~]$ rm data-*.out
+  [skelting1@buddy ~]$ ls
+  foobar.out example.out
+
 .. warning::
 
   The ``rm`` command is permanent!! There is no trashcan to restore files from, and data recovery is not possible. Please be careful when using this command. Remember, think twice, hit enter once.
@@ -230,6 +257,12 @@ You may notice that if the directory is filled with files, it may prompt you abo
 .. code-block:: console
   
   [skelting1@buddy ~]$ rm -r -f Data_Folder_03
+
+or
+
+.. code-block:: console
+  
+  [skelting1@buddy ~]$ rm -rf Data_Folder_03
 
 There may be instances when you want to create a blank file. Do do this, we use the touch command
 
@@ -242,7 +275,7 @@ There may be instances when you want to create a blank file. Do do this, we use 
 Copy, Move, and Rename
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Often times, we want to replicate files and folders on our system. To do this, we use the "CoPy" command. For copying directories that contain files, we also want to include a "Rescursive" option. When using copy, we will first specify the source followed by the destination
+Often times, we want to replicate files and folders on our system. To do this, we use the "CoPy" command. For copying directories that contain files, we also want to include a "Recursive" option. When using copy, we will first specify the source followed by the destination
 
 .. code-block:: console
 
@@ -261,48 +294,536 @@ We can also copy files or directories into other directories
   [skelting1@buddy ~]$ ls Data_Folder_01
   data-set-01.dat  data-set-02.dat  meta  script.sh
 
+The "MoVe" command is used to move files from one place to another. Its behavior can change depending on what paths you provide and what those paths go to.
 
+If you provide two paths and the first one exist while the second one does not, the first file will be renamed to the second.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$  ls
+  batchjob.sh copy-of-script.sh Data_Folder_01 Data Folder 02 script.sh slurm_output.txt
+  [skelting1@buddy ~]$ mv script.sh foobar.sh
+  [skelting1@buddy ~]$  ls
+  batchjob.sh copy-of-script.sh Data_Folder_01 Data Folder 02 foobar.sh slurm_output.txt
+
+.. note::
+
+   If foobar.sh already exists, the command will throw an error. Using the -f flag will allow you to overwrite foobar.sh
+
+This works for directories as well with one exception. If the last path provided is an existing directory, whatever is at all of the other paths will be moved into the directory
+
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$  ls
+  batchjob.sh copy-of-script.sh Data_Folder_01 Data Folder 02 foobar.sh slurm_output.txt
+  [skelting1@buddy ~]$ mv batchjob.sh copy-of-script.sh foobar.sh slurm_output.txt Data_Folder_01
+  [skelting1@buddy ~]$  ls
+  Data_Folder_01 Data Folder 02
+  [skelting1@buddy ~]$  ls Data_Folder_01
+  data-set-01.dat  data-set-02.dat  meta  script.sh batchjob.sh copy-of-script.sh foobar.sh slurm_output.txt
+
+You can also use wildcards to move similarly named paths as well. If you wanted to move your ``.dat`` files back out of Data_Folder_1 and into the current working directory you could do the following
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$  ls Data_Folder_01
+  data-set-01.dat  data-set-02.dat  meta  script.sh batchjob.sh copy-of-script.sh foobar.sh slurm_output.txt
+  [skelting1@buddy ~]$  mv Data_Folder_01/*.dat .
+  [skelting1@buddy ~]$  ls
+  data-set-01.dat data-set-01.dat Data_Folder_01 Data Folder 02
+
+.. note::
+
+  Notice the use of the special ``.`` path to reference the current working directory
 
 Common Commands and Features
 ----------------------------
 
 File Viewing/Editing and Pipes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Viewing
+_______
+Viewing the contents of a file is a common task so there are a couple of commands to do so. The "conCATenate" command is used to display the entire contents of a file
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$  cat data-set-01.dat
+  key1 value1
+  key2 value2
+  key3 value3
+
+The name "conCATenate" comes from its ability to join the output of files together. This is evident when viewing the contents of several files at once
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$  cat data-set-01.dat data-set-02.dat
+  key1 value1
+  key2 value2
+  key3 value3
+  other data1
+  other data2
+  other data3
+
+You could have also used the wildcard character here: ``cat *.dat``
+
+If you just want to view the beginning or end of a file you can use the head and tail commands respectively. The ``-n`` flag specify how many lines you would like to see; defaulting to 10 if the -n flag is omitted
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$  tail -n 2 data-set-01.dat
+  key2 value2
+  key3 value3
+  [skelting1@buddy ~]$  head -n 2 data-set-01.dat
+  key1 value1
+  key2 value2
+
+Tail has a useful feature in the ``-f`` flag which causes tail to watch for changes in the given files and updates the screen as they occur. This is particularly useful for output files such as those generated by slurm scripts
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$  tail -n 2 -f slurm.out
+  output line 2
+  output line 3
+
+later...
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$  tail -n 2 -f slurm.out
+  output line2
+  output line3
+  output line4
+
+
+.. note::
+
+  Displaying the contents of a file usually only makes since is that file is plain text; i.e. not a binary file. Catting out a .bin file will just result in your screen being filled with random nonsense characters
+
+Editing
+_______
+
+.. todo::
+  - vim(extreme basics)
+  - nano
+
+Pipes
+_____
+Sometimes you may want to take the output of a command and so something with it like storing it in a file or passing it to another command; this is where pipes become useful
+
+For example: if you wanted to store the result of the ``ls`` command as a file, you could do the following
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls > output.txt
+  [skelting1@buddy ~]$ cat output.txt
+  data-set-01.dat  data-set-02.dat  meta
+
+The ``>`` pipe places the output of the previous command into the given file; creating it if it doesn't already exist and overwriting it if it does. If you wish to append the command output to the end of the given file instead of overwriting it use the ``>>`` pipe.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls >> output.txt
+  [skelting1@buddy ~]$ cat output.txt
+  data-set-01.dat  data-set-02.dat  meta
+  [skelting1@buddy ~]$ ls >> output.txt
+  [skelting1@buddy ~]$ cat output.txt
+  data-set-01.dat  data-set-02.dat  meta
+  data-set-01.dat  data-set-02.dat  meta
+
+To pass the output of one command as input to another use the ``|`` pipe. For example if you only wanted the last two lines of the ``ls -a`` command you could do the following.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls -l
+  total 16
+  drwxr-xr-x 2 tdunn3 tdunn3 4096 May  4 11:35  Data_Folder_01
+  drwxr-xr-x 2 tdunn3 tdunn3 4096 May  4 11:35 'Data Folder 02'
+  -rw-r--r-- 1 tdunn3 tdunn3   36 May  4 11:34  data-set-01.dat
+  -rw-r--r-- 1 tdunn3 tdunn3   39 May  4 11:34  data-set-02.dat
+  [skelting1@buddy ~]$ ls -l | tail -n 2
+  -rw-r--r-- 1 tdunn3 tdunn3   36 May  4 11:34  data-set-01.dat
+  -rw-r--r-- 1 tdunn3 tdunn3   39 May  4 11:34  data-set-02.dat
+
+It is common practice to chain multiple commands one after the other using ``|`` in order to refine data with successive commands.
 
 Shortcuts
 ~~~~~~~~~
 
++---------------+-------------------------------------------------------------------+
+| Command       | description                                                       |
++===============+===================================================================+
+| !!            | used within a command will be replaced with your last run command |
++---------------+-------------------------------------------------------------------+
+| Ctl+Shift+c   | copies the selected text in the terminal                          |
++---------------+-------------------------------------------------------------------+
+| Ctl+Shift+v   | pastes in terminal                                                |
++---------------+-------------------------------------------------------------------+
+| Tab           | completes the portion of text that has already been typed         |
++---------------+-------------------------------------------------------------------+
+| Up            | autofills the last command                                        |
++---------------+-------------------------------------------------------------------+
+| Home          | jumps to beginning of line                                        |
++---------------+-------------------------------------------------------------------+
+| End           | jumps to end of line                                              |
++---------------+-------------------------------------------------------------------+
+
 Searching
 ~~~~~~~~~
+The ``grep`` command is one of the most useful commands you could have in your arsenal. It's used to search for words or patterns within one or multiple files or strings.
 
-Compressing and Uncompressing
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. todo::
+  - ``find``
+  - ``grep``
 
 File Permissions and Information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Listing file info
+_________________
+The ``ls -l`` command provides a lot of useful information.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ ls -l
+  total 16
+  drwxr-xr-x 2 tdunn3 tdunn3 4096 May  4 11:35  Data_Folder_01
+  drwxr-xr-x 2 tdunn3 tdunn3 4096 May  4 11:35 'Data Folder 02'
+  -rw-r--r-- 1 tdunn3 tdunn3   36 May  4 11:34  data-set-01.dat
+  -rw-r--r-- 1 tdunn3 tdunn3   39 May  4 11:34  data-set-02.dat
+
+The first part of each line, ``drwxr-xr-x``, describe the file permissions i.e. who is allowed to do what with this file. The ``d`` means we are looking at a directory and the next nine character correspond to the read(r), write(w), and execute(x) permissions for the owner the file, the access group, and everyone else respectively. For example, the first file has permissions of ``rwxr-xr-x`` which means the owner can read, write and execute(``rwx``) and the group along with everyone else can only read and execute(``r-x``).
+
+The second part counts the number of hard links to the file. If you're curious you can find more information `here <https://medium.com/@krisbredemeier/the-difference-between-hard-links-and-soft-or-symbolic-links-780149244f7d>`_
+
+The third and fourth parts correspond to the owner and the group respectively. These are the same owner and group that are referenced in the first part.
+
+The fourth, fifth, and sixth parts describe the file size, the date the file was created, and its name respectively.
+
+Changing file permissions
+_________________________
+The file permissions described in the previous section can be altered with the ``chmod`` command. There are two ways to use this command: the first is easier to understand but bulky while the second is more obscure but also more concise.
+
+The bulky version:
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ chmod u=rwx,g=rx,o=r data-set-02.dat
+
+In the above example ``u=rwx`` gives read, write, and execute permissions to the owner of the file, ``g=rx`` gives read and execute permissions to the file's group and ``o=r`` gives read permissions to everyone else.
+
+For the concise version each of the permissions are encoded as powers of two. Read (r) is encoded as 4, write(w) is 2, execute(x) is 1, and 0 is reserved for no permissions. In the above example, the owner of the file has permissions of ``rwx``. To express that using the encoded numbers, simply add them together. 4+2+1=7 so ``rwx`` is equivalent to 7. Next, the group has ``rx`` permissions so, 4+2=6, ``rx`` is equivalent to 6. Finally everyone else only has read permissions so that is simply 2. The final permissions are written in owner-group-other order so the permissions for this file are written as 762,
+ 
+.. code-block:: console
+
+  [skelting1@buddy ~]$ chmod 762 data-set-02.dat
+ 
+This method may seem complicated but it is a more direct way of representing permissions and it is much more common than the first method so you are more likely to see it when searching for command help than the first example. As with any command, if you use it often enough you will learn it, otherwise don't be ashamed to look it up.
+
+Compressing and Uncompressing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compressing a file makes it more portable; both because it can reduce the file size but also because it bundles a directory of files into a single file.
+
+Probably the easiest way to compress a file is to use the ``zip`` command.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ zip zipped_file.zip my_directory/
+
+To uncompress a ``zip`` file use the ``unzip`` command.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ unzip zipped_file.zip
+
+Another popular method for compressing files is the ``tar`` command. The ``tar`` command has notoriously difficult to remember flags which has lead to an inside joke among linux users: "Oh so you say you're a linux expert, but can you tar a file without looking it up?". This is mainly because no one uses the command frequently enough to remember how it works. That being said, it isn't difficult; just hard to remember so don't be afraid to refer back to this guide if you forget because even the experts have to look it up.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ tar -czvf compressed.tar.gz my_directory/
+
+Technically, ``tar`` isn't a compression tool. It creates archives, called tarballs, which could be compressed but don't have to be. These archives essentially bundle different files together into a single file. In the above command the ``-c`` flag creates an archive, ``-z`` compresses it using the ``gzip`` format, ``-v`` displays the progress in the terminal, and ``-f`` allows you to specify the file name of the final tarbal.
+
+Untarring a file can be accomplished as follows:
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ tar -xvf compressed.tar.gz
+
+In the above example: ``-x`` extracts the files from the tarbal, ``-v`` displays progress in the terminal, and ``-f`` allows you to specify the input file name.
+
 Downloading Files
 ~~~~~~~~~~~~~~~~~
+Downloading files from sources on the internet is a crucial part of modern terminal usage and there are several ways to accomplish it for different use cases.
+
+.. note::
+   Please review the :doc:`Cluster Usage: Rules and Guidelines </quickstart/etiquette>` section and the :doc:`Data Transfer </general/data_transfer>` section before moving data onto buddy
+
+wget
+____
+Wget is a command line tool for pulling files from a download link. To use it, just navigate to the directory that you wish the file to be downloaded to, copy the link to your file, and use the following command.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ cd my_directory
+  [skelting1@buddy my_directory]$ wget https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png
+
+This example downloads the google banner image.
+
+.. warning::
+   Since wget allows you to pull data from another source, it can be dangerous. It is important to be sure your download link is correct, you know what you are downloading and you verify the correct file has been downloaded
+
+sftp
+____
+Sftp is a file transfer protocol with a utility similar to ssh which we discussed in a previous section.
+
+.. code-block:: console
+
+  [myuser@mycomputer ~]$ sftp buddyUsername@buddy.uco.edu
+  sftp>
+
+.. note::
+   You are able to use the ``ls`` and the ``cd`` commands within the sftp prompt so basic navigation is possible.
+
+To move files from your end to buddy first navigate to the directory where your file is and then move the file to buddy using sftp and the ``put`` command.
+
+.. code-block:: console
+
+  [myuser@mycomputer ~]$ ls
+  myfile1.txt myfile2.dat foobar/
+  [myuser@mycomputer ~]$ sftp buddyUsername@buddy.uco.edu
+  sftp> put myfile1.txt
+  Uploading myfile1.txt  to /home/buddyUsername/myfile.txt
+  myfile.txt                 100%  236KB   4.5MB/s   00:00
+
+Files can be retrieved from a remote server by connecting to it via sftp and using the ``get`` command. The file will be downloaded to whichever directory you were in when you connected via sftp.
+
+.. code-block:: console
+
+  sftp> get myfile1.txt
+  Fetching /home/buddyUsername/myfile1.txt to myfile1.txt
+  myfile1.txt                100%  236KB  34.4KB/s   00:06
+
+To leave an sftp session use the ``exit`` command.
+
+.. code-block:: console
+
+  sftp> exit
+  [myuser@mycomputer ~]$ 
+
+git
+___
+See :doc:`github </general/git>` section
 
 Tips and Tricks
 ---------------
+Some rapid fire tips and tricks
 
-Basic Scripting
----------------
+#. If you use a command often enough, you will learn it. Otherwise don't be ashamed to look it up. There is no point in memorizing something you'll never use and even experienced linux users look things up regularly so you're in good company
+#. Tab complete is your friend. Just type enough of something to uniquely identify it and then press tab to fill in the rest. It saves so much time
+#. The ``Home`` key allows you to jump to the beginning of a line while the ``End`` key jumps to the end.
+
+Basic Bash Scripting
+--------------------
+Sometimes you may find that you need to run several commands one after another or even with some additional logic like branching or loops; this is where scripting becomes useful. The idea is to write down a series of commands within a logical structure in a file and then execute the file just like a normal program. Scripting makes it possible to handle complex scenarios in a repeatable way which is why we use them to submit jobs to the cluster using slurm. Though bash scripts can be executed directly, scripts on Buddy must be run using slurm. See :doc:`the slurm section </general/slurm>` for more information.
 
 Hello World
 ~~~~~~~~~~~
+Every script begins with a shebang, ``#!``, followed by the path to the appropriate interpreter which is ``/bin/bash`` in this case so our hello world script will begin like so:
+
+.. code-block:: bash
+   :linenos:
+   :caption: hello_world.sh
+
+   #!/bin/bash
+
+To print "hello world" to the terminal we can use the ``echo`` command. Lines beginning with a hash, ``#``, are comments. They are not executed by the interpreter and are just for the benefit of anyone reading the code. We will add a comment to label our simple script.
+
+.. code-block:: bash
+   :linenos:
+   :caption: hello_world.sh
+
+   #!/bin/bash
+
+   # This statement prints hello world to the terminal
+   echo "hello world"
 
 Basic Logic
 ~~~~~~~~~~~
+.. warning::
+    Spaces and newlines are very important parts of the bash syntax. Something as simple as adding a space or forgetting to add one can cause a difficult to find error so pay attention to leading and trailing spaces in the following examples
+
+Variables
+_________
+An essential part of any programming language is how variables are handled.
+
+.. code-block:: bash
+   :linenos:
+   :caption: variables.sh
+
+   #!/bin/bash
+
+   # Declare variable in bash. Notice: No space before or after the =
+   my_variable=8
+
+   #reference variable in bash
+   echo $my_variable
+
+It is important to note that variables in bash are untyped. You can treat them as strings that are interpreted depending on the situation
+
+Branching and Conditions
+________________________
+One of the most ubiquitous and most useful programming structures are branching statements which decide which code block to run based on the provided condition.
+
+Here are some of the conditions available in bash
+
++-------------------+-----------------------------------------------------------------------+
+| condition         | description                                                           |
++===================+=======================================================================+
+| $a -eq $b         | returns true if a and b are equal (both are numbers)                  |
++-------------------+-----------------------------------------------------------------------+
+| $a -lt $b         | returns true if a is less than b (both are numbers)                   |
++-------------------+-----------------------------------------------------------------------+
+| $a -gt $b         | returns true if a is greater than b (both are numbers)                |
++-------------------+-----------------------------------------------------------------------+
+| $a == $b          | returns true if a and b are equivalent (both are strings)             |
++-------------------+-----------------------------------------------------------------------+
+| $a != $b          | returns true if a and b are not equivalent (both are strings)         |
++-------------------+-----------------------------------------------------------------------+
+| ! [ `condition` ] | returns true if condition is false                                    |
++-------------------+-----------------------------------------------------------------------+
+| -d $a             | return true if directory at path a exists                             |
++-------------------+-----------------------------------------------------------------------+
+| -e $a             | return true if file at path a exists                                  |
++-------------------+-----------------------------------------------------------------------+
+| -r $a             | return true if file at path a exists and can be read                  |
++-------------------+-----------------------------------------------------------------------+
+| -w $a             | return true if file at path a exists and can be written to            |
++-------------------+-----------------------------------------------------------------------+
+| -x $a             | return true if file at path a exists and can be executed              |
++-------------------+-----------------------------------------------------------------------+
+| -z "$a"           | return true if variable a is defined                                  |
++-------------------+-----------------------------------------------------------------------+
+
+Bash branches might look a little strange if you have used another programming language like python or java.
+
+.. code-block:: bash
+   :linenos:
+   :caption: branching.sh
+
+   #!/bin/bash
+
+   # branching. Note the spaces before and after the condition
+   if [ condition ]
+   then
+       echo condition is true
+   elif [ condition2 ]
+   then
+       echo condition is false and condition2 is true
+   else
+       echo condition and condition2 are false
+   fi
+
+There are a few things to unpack here. Firstly the if block ends with ``fi``. Statement blocks in bash end with the block name spelled backwards. Secondly after a conditional statement like ``if`` and ``elif`` the body is declared with a ``then`` statement. Finally, statements are separated by new lines. However, multiple statements can be declared on the same line by separating them with a ``;``. This feature allow us to rewrite the above example in a different way which you do tend to see if you search for examples online. The style you choose is up to you but here is how the above example looks making use of ``;``.
+
+.. code-block:: bash
+   :linenos:
+   :caption: branching.sh
+
+   #!/bin/bash
+   
+   # branching
+   if [ condition ]; then
+       echo condition is true
+   elif [ condition2 ]; then
+       echo condition is false and condition2 is true
+   else
+       echo condition and condition2 are false
+   fi
+   
+.. note:: 
+    conditions in bash can get complicated when you start to branch out to using different "test constructs" like ``(())`` and ``[]`` and unusual operators like ``-z`` which checks if a variable is defined. Don't worry about learning these until you run into a situation that requires them
+
+Loops
+_____
+Loops are essential for any programming language and bash has three varieties: while loops, until loops, and for loops. All loop blocks begin with do and end with done.
+
+.. code-block:: bash
+   :linenos:
+   :caption: loops.sh
+
+   #!/bin/bash
+
+   ### The following loops are equivalent
+
+   # While loop
+   a=0
+   while [ $a -le 5 ]; do
+       echo a equals: $a
+       ((a=a+1))
+   done
+   
+   # until loop
+   a=0
+   until [ $a -ge 5 ]; do
+       echo a equals: $a
+       ((a=a+1))
+   done
+   
+   # For loop
+   # Note that the variable "a" after the "for" does not come after a "$". 
+   #    This is because a is being declared here and is set equal to each 
+   #    value in the sequence "0 .. 4" one after the other.
+   for a in {0 .. 4} ; do
+       echo a equals: $a
+   done
+   
+.. note::
+    in the for loop example, ``..`` declare a range from 0 up to and including 4 . If it is equivalent to just typing 0 1 2 3 4 .
+
 
 Providing Input
 ~~~~~~~~~~~~~~~
+Passing input to a script from the command line is as simple as including your input, separated by spaces, after you invoke the script.
+
+.. code-block:: console
+
+  [skelting1@buddy ~]$ sbatch input_example.sh input1 input2 input3 input4
+
+Then each input will be available within your script through number variables along with the name of the script in the 0 number variable.
+
+.. code-block:: bash
+   :linenos:
+   :caption: input_example.sh
+
+   #!/bin/bash
+
+   echo this script is called: $0
+   echo input one is: $1
+   echo input two is: $2
+   echo input three is: $3
+   echo input four is: $4
+
+All inputs and the name of the script can also be accessed in an array ``$@``.
+
+.. code-block:: bash
+   :linenos:
+   :caption: input_example.sh
+
+   #!/bin/bash
+
+   echo input command: $@
 
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
+.. todo::
+   troubleshooting section
+
 Additional Resources
 --------------------
+
+.. todo::
+   additional resources section
 
 
