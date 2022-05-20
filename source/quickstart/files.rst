@@ -1,0 +1,17 @@
+Creating and Editing Files
+==========================
+
+Navigation
+^^^^^^^^^^
+
+.. image:: img/open_ondemand_menu.png
+
+To view and manage your files, navigate to ``Files`` -> ``Home Directory``. 
+	   
+Create, Delete, and Edit
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+Import and Export
+^^^^^^^^^^^^^^^^^
