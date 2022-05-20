@@ -1,2 +1,2 @@
-Using git and github
+Using Git and Github
 ====================
