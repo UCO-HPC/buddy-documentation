@@ -24,7 +24,10 @@ For files that are larger than 2Gb, Globus is the prefered method for moving dat
 ~~~~~~~~~~~~~~~~~~~~~~~~
    1. Visit `globus.org <https://www.globus.org/>`_ and click ``Log In`` in the upper right
    2. Click ``Globus ID to sign in``
+<<<<<<< HEAD
+=======
 
+>>>>>>> 46db864ca815bc7402315ccb47e9e102a72b412d
 .. image:: /_static/img/globus_login.png
   :width: 45%
   :align: center
@@ -43,6 +46,14 @@ For files that are larger than 2Gb, Globus is the prefered method for moving dat
 3. Connect to Buddy
 ~~~~~~~~~~~~~~~~~~~
    1. Search ``Buddy`` in the collection search bar
+<<<<<<< HEAD
+.. image:: /_static/img/collection_search_buddy.png
+  :width: 30%
+  :align: center
+  :alt: Buddy Globus collection search
+..
+         
+=======
 
 .. image:: /_static/img/collection_search_buddy.png
  :width: 30%
@@ -50,6 +61,7 @@ For files that are larger than 2Gb, Globus is the prefered method for moving dat
  :alt: Buddy Globus collection search
 .. 
 
+>>>>>>> 46db864ca815bc7402315ccb47e9e102a72b412d
    2. Select ``Home storage`` for files smaller than 100Gb otherwise select ``DTN storage``
    3. Click ``Continue``
    4. Choose to Link an identity from ``Buddy OIDC SERVER...``
