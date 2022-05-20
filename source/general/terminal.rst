@@ -400,12 +400,83 @@ later...
 
   Displaying the contents of a file usually only makes since is that file is plain text; i.e. not a binary file. Catting out a .bin file will just result in your screen being filled with random nonsense characters
 
-Editing
-_______
+Editing with nano
+_________________
 
-.. todo::
-  - vim(extreme basics)
-  - nano
+To begin editing a file with nano pass its file path to the ``nano`` command
+
+.. code-block:: console
+
+   [skelting1@buddy ~]$ nano data-set-02.dat
+
+.. code-block::
+   :linenos:
+   :caption: data-set-02.dat
+
+   April 1st subject baseline
+   May 5th subject reports weight loss
+   June 3rd subject reports light-headedness may be due to trial drug
+   June 10th trial discontinued
+
+Navigate using arrow keys and edit the file by typing characters and using backspace like you'd expect. The characters you type will appear before the currently selected character. 
+
+.. note::
+   When using the nano editor, command shortcuts appear at the bottom of the screen. These shortcuts can be confusing if you aren't familiar with the notation so just remember that ``^`` refers the ``Ctrl`` key and ``M`` represents the meta key also known as the ``Alt`` key on windows or the ``Option`` on Mac.
+
+Copy, cut, and paste can be achieved by first selecting the desired text. Move the cursor to the first character of the selection, hold ``Shift`` and use the arrow keys to select all desired characters. Then press ``Alt+6`` or ``Option+6`` to copy or ``Ctrl+k`` to cut, move to the desired paste location and press ``Ctrl+u`` to paste.
+
+Save using ``Ctrl+o`` and exit using ``Ctrl+x``.
+
+Editing with vim
+________________
+
+To begin editing a file with nano pass its file path to the ``vim`` command
+
+.. code-block:: console
+
+   [skelting1@buddy ~]$ vim data-set-02.dat
+
+.. code-block::
+   :linenos:
+   :caption: data-set-02.dat
+
+   April 1st subject baseline
+   May 5th subject reports weight loss
+   June 3rd subject reports light-headedness may be due to trial drug
+   June 10th trial discontinued
+
+Vim uses the concept of "modes" to categorize different kinds of behavior. For instance, typing new portions of a file must happen within "insert mode". Understanding how to use and swtich between modes is one of the most important parts of using vim.
+
+To enter a mode first enter "normal" mode by pressing the ``ESC`` key. You can think of this as backing out of whatever other mode you might already be in. Then press the appropriate key to enter your desired mode.
+
+.. tip::
+   If you hit something by mistake and can't figure out how to get out of it, just spam the ``ESC`` key. This will always get you back to vim's normal mode and you can get where you want from there. When in doubt, get to normal mode. 
+
++----------+----------------------+---------------------------------------------------------+
+| Shortcut | Mode                 | Description                                             |
++==========+======================+=========================================================+
+| ESC      | Normal mode          | manipulate whole lines and jump into other modes        |
++----------+----------------------+---------------------------------------------------------+
+| i        | Insert mode          | insert and delete characters like a normal editor       |
++----------+----------------------+---------------------------------------------------------+
+| Ctrl+v   | Block visual mode    | select character by character and across multiple lines |
++----------+----------------------+---------------------------------------------------------+
+| Shift+v  | Linewise visual mode | select multiple lines                                   |
++----------+----------------------+---------------------------------------------------------+
+| :        | Command mode         | type commands to perform various vim functions          |
++----------+----------------------+---------------------------------------------------------+
+
+To begin editing a file, make sure you're in normal mode by pressing ``ESC``, enter insert mode by pressing ``i``, and begin editing. 
+
+Cut, copy, and paste can be caried out on entire lines or on selected portions of text. 
+
+To copy an entire line, enter normal mode by pressing ``ESC``, navigate the cursor to the desired line, and "yank" the line with ``yy``. Cut is similar to copy but you "delete" the line with ``dd`` instead of "yanking" it. To paste the stored line, navigate the cursor to a line near where you would like to "put" it and press ``p`` to paste the below the current line or ``Shift+p`` to paste above it. 
+
+To copy or cut a selection you first need to select some text. To select multiple lines, first be sure you're in normal mode by typing ``ESC``, then navigate to the first line you would like to select and enter "linewise visual mode" by pressing ``Shift+v``. Finally use the up and down arrow keys to select more lines. To select a block of text, first be sure you're in normal mode by pressing ``ESC``, then navigate the first character you would like to select and enter "block visual mode" by pressing ``Ctrl+v``. Finally use the arrow keys to complete your selection.
+
+With some of the text selected you can "yank" (copy) the selection with ``y`` or "delete"(cut) it with ``d``. You can "put"(paste) the selected text using ``p`` or ``Shift+p``. If you made the selection using "linewise visual mode" the selection will be pasted above or below the current line. If you made the selection using "block visual mode" the selection will be pasted before or after the currently selected character.
+
+To save the current file or exit vim you need to use the appropriate vim commands. Firstly, you need to be sure you are in normal mode by typing ``ESC`` then jump into command mode by typing ``:``. In command mode you can save the current file by typing the ``w`` command and hitting enter. To save and quit type ``wq`` and hit enter. You can quit without saving by just using the ``q`` command if you haven't edited the file otherwise you will have to force vim to exit without saving by using the ``q!`` command.
 
 Pipes
 _____
@@ -470,11 +541,68 @@ Shortcuts
 
 Searching
 ~~~~~~~~~
+
+grep
+____
 The ``grep`` command is one of the most useful commands you could have in your arsenal. It's used to search for words or patterns within one or multiple files or strings.
 
-.. todo::
-  - ``find``
-  - ``grep``
+To search for lines containing a word or phrase within a file:
+
+.. code-block:: console
+
+   [skelting1@buddy ~]$ cat data-set-02.dat
+   April 1st subject baseline
+   May 5th subject reports weight loss
+   June 3rd subject reports light-headedness may be due to trial drug
+   June 10th trial discontinued
+   [skelting1@buddy ~]$ grep data-set-02.dat May
+   May 5th subject reports weight loss
+
+Grep also works with data piped in from other commands. This is actually a common use case for grep
+
+.. code-block:: console
+
+   [skelting1@buddy ~]$ ls -l
+   total 16
+   drwxr-xr-x 2 tdunn3 tdunn3 4096 May  4 11:35  Data_Folder_01
+   drwxr-xr-x 2 tdunn3 tdunn3 4096 May  4 11:35 'Data Folder 02'
+   -rw-r--r-- 1 tdunn3 tdunn3   36 May  4 11:34  data-set-01.dat
+   -rw-r--r-- 1 tdunn3 tdunn3   39 May  4 11:34  data-set-02.dat
+   [skelting1@buddy ~]$ ls -l | grep 02
+   drwxr-xr-x 2 tdunn3 tdunn3 4096 May  4 11:35 'Data Folder 02'
+   -rw-r--r-- 1 tdunn3 tdunn3   39 May  4 11:34  data-set-02.dat
+
+Another important use case for grep is listing files that contain a pattern with the ``-l`` flag. It is often used with the ``-i`` flag which makes the search case insensative (May is the same as may) and ``-R`` which recursivly searches directories.
+
+.. code-block:: console
+
+   [skelting1@buddy ~]$ grep -Ril may
+   data-set-02.dat
+
+.. note::
+   To search for patterns that contain spaces you can either "escape" the spaces using back slashes, i.e. `my string` becomes `my\\ string`, or you can quote them, `my string` becomes `"my string"`. However, quotes can be tricky because they are designed to search for regular expressions so special characters like ``.``'s and ``-``'s are treated as instructions. To search for quoted patterns containing special characters you must "escape" them with back slashes like "my hyper\\-strange expression goes \\[HERE\\] \\." This forces those characters to be read as "literals" meaning they are treated as the literal character you typed and not a regular expressrion instruction.
+
+find
+____
+The find command is used to find files matching the given pattern
+
+To find files within the current directory and its subdirectories with "02" in the name
+
+.. code-block:: console
+
+   [skelting1@buddy ~]$ ls
+   Data_Folder_01 'Data Folder 02' data-set-01.dat data-set-02.dat
+   [skelting1@buddy ~]$ find . -name 02
+   'Data Folder 02' data-set-02.dat
+
+Find is often used with other commands. For example you can find with the type f (regular file) using find's ``-type`` and then of pass those to grep using the ``-exec`` flag to select only those files that contain a certain phrase
+
+.. code-block:: console
+
+   [skelting1@buddy ~]$ find . -type f -exec grep -l May {} \;
+   data-set-02.dat
+
+The ``{}`` in the above command will be filled by the output of the rest of the find command. So actual command that returns the above output is ``grep -l May data-set-01.dat data-set-02.dat``
 
 File Permissions and Information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -622,6 +750,8 @@ Some rapid fire tips and tricks
 #. If you use a command often enough, you will learn it. Otherwise don't be ashamed to look it up. There is no point in memorizing something you'll never use and even experienced linux users look things up regularly so you're in good company
 #. Tab complete is your friend. Just type enough of something to uniquely identify it and then press tab to fill in the rest. It saves so much time
 #. The ``Home`` key allows you to jump to the beginning of a line while the ``End`` key jumps to the end.
+#. If you want to stop a command from running before it finishes or you want to get out of something try pressing ``Ctrl+c``. This sends a keyborard interrupt which should tell the command to halt
+#. When you are first learning the terminal and using different commands it is common to get stuck inside of something and not know how to get out of it. When this happens it is common practice to spam the keys that are most commonly used to escape various programs. Try ``q`` for quit, ``ESC`` for escape, ``Ctrl+c`` sends a keyboard interrupt and should kill the command you are inside of, ``Ctrl+d`` sometimes works if ``Ctrl+c`` fails, if you are able to type try typing "exit" or "quit", and if all else fails just close the terminal window and open a new one; we've all had to do that once or twice
 
 Basic Bash Scripting
 --------------------
@@ -817,13 +947,17 @@ All inputs and the name of the script can also be accessed in an array ``$@``.
 Troubleshooting
 ~~~~~~~~~~~~~~~
 
-.. todo::
-   troubleshooting section
+Basic debugging involves:
+  #. Identifying the error message
+  #. Determining the source of the bug
+  #. Fixing the bug
 
-Additional Resources
---------------------
+Identifying the error message may or may not be easy depending on how clear the ouptut of your command is and how much output there is. There is a tendency for error messages to get burried in the output of software if it is poorly written or simply complex. Take time and read carefully to figure out what the computer is trying to tell you about what has gone wrong.
 
-.. todo::
-   additional resources section
+.. note::
+   Warnings are different from errors in that they indicate bad practice, outdated commands, or other minor issues while errors indicate serious issues. They can sometimes hint at the source of an error but that is after you have looked into any error messages that you find.
 
+Determining the source of the bug usually involves some knowledge of how your program is constructed though some error messages will tell you the line number that the error occured on (and we are incredibly grateful for that). A powerful technique is to simply copy the error message (or part of the message) into a web browser and search for other people who have had the same problem. This is usually the first step if your someone else's software and is very common even and especially with professional programmers. Internet searching is a skill in and of itself so we won't go into detail except to say that there is plenty of helpful information out there as well plenty of misleading information. Be careful when following someone's advice and even then, take precautions, make backups and contact administration if you are unsure or have any questions.
+
+Fixing the bug is the hard part. If you misidentified the actual error message or the real cause of the error then you will make a fix and it won't work or might even break something else. Part of working through this last step is going back to the previous two and trying something else. Reread the error message, try changing the way you phrase your search, gather more information, and try again. Debugging can often feel like you're battling with the computer and it is refusing to yeild. If you get stuck or have any questions contact administration with your bug and some of the information you collected and we will try to help you narrow down your issue. 
 
