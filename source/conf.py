@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'buddy-docs'
-copyright = '2021, tdunn3'
-author = 'tdunn3'
+project = 'buddy-documentation'
+copyright = '2022, CREIC'
+author = 'CREIC'
 
 
 # -- General configuration ---------------------------------------------------
@@ -38,6 +38,12 @@ extensions = [
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
+
+# Todos show warnings when building documentation
+todo_emit_warnings = True
+
+# Todos are rendered in documentation
+todo_include_todos = True
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -72,15 +78,18 @@ html_theme_options = {
     "logo_only": True,
     # Collapse navigation (False makes it tree-like)
     "collapse_navigation": False,
+    # Scroll navigation with page
+    "sticky_navigation": True,
+    
 }
 
 # These folders are copied to the documentation's HTML output
 html_static_path = ['_static']
 
 #must be a png to support transparency
-html_logo = "img/logo.png"
+html_logo = "_static/img/logo.png"
 
-html_favicon = "img/favicon.ico"
+html_favicon = "_static/img/favicon.ico"
 
 # These paths are either relative to html_static_path
 # or fully qualified paths (e.g. https://...)
