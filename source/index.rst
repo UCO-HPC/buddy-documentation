@@ -24,6 +24,7 @@ Buddy Docs
    general/data_transfer.rst
    general/requests.rst
    general/tips.rst
+   general/*
 	  
 .. toctree::
    :maxdepth: 2
