@@ -50,7 +50,6 @@ For files that are larger than 2Gb, Globus is the prefered method for moving dat
  :alt: Buddy Globus collection search
 .. 
 
->>>>>>> 46db864ca815bc7402315ccb47e9e102a72b412d
    2. Select ``Home storage`` for files smaller than 100Gb otherwise select ``DTN storage``
    3. Click ``Continue``
    4. Choose to Link an identity from ``Buddy OIDC SERVER...``

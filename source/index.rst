@@ -24,7 +24,6 @@ Buddy Docs
    general/data_transfer.rst
    general/requests.rst
    general/tips.rst
-   general/*
 	  
 .. toctree::
    :maxdepth: 2
@@ -32,6 +31,7 @@ Buddy Docs
    :name: sec-software
    :glob:
 
+   software/overview
    software/*
    
 .. toctree::
@@ -40,6 +40,7 @@ Buddy Docs
    :name: sec-advanced
    :glob:
 
+   advanced/overview
    advanced/*
    
 .. toctree::
@@ -50,10 +51,11 @@ Buddy Docs
 
    other_hpc_resources/*
    
-.. toctree::
-   :maxdepth: 2
-   :caption: FAQ
-   :name: sec-faq
-   :glob:
-
-   faq/*
+..
+    .. toctree::
+       :maxdepth: 2
+       :caption: FAQ
+       :name: sec-faq
+       :glob:
+    
+       faq/*
