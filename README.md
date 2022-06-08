@@ -2,6 +2,7 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/UCO-HPC/buddy-documentation?style=flat-square)](https://github.com/UCO-HPC/buddy-documentation/blob/main/CHANGELOG.md)
 [![GitHub License](https://img.shields.io/github/license/UCO-HPC/buddy-documentation?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Documentation Status](https://readthedocs.org/projects/buddy/badge/?version=latest)](https://buddy.readthedocs.io/en/latest/?badge=latest)
 
 A repository to host Buddy's source code for our [Read The Docs] page. Documentation is built with [Sphinx]. The latest published version of the documentation is located [here]. 
 
