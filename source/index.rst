@@ -20,6 +20,7 @@ Buddy Docs
    general/ondemand.rst
    general/terminal
    general/slurm.rst
+   general/lmod.rst
    general/data_storage.rst
    general/data_transfer.rst
    general/requests.rst
