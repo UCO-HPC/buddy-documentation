@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'buddy-documentation'
-copyright = '2022, CREIC'
+copyright = '2025, CREIC'
 author = 'CREIC'
 
 

@@ -1,28 +1,22 @@
 Using the Terminal
 ==================
 
-The Linux command line is one of two methods for accessing Buddy resources. It's features, power, and flexibility are essential for those wishing to properly utilize the cluster. While the navigation terminal may seem confusing, many of it's aspects are straightforward.
+The Linux command line is one of two methods available for accessing Buddy resources. Accessing the cluster this way is recommended for users who are already familiar with navigating Linux using a terminal.
 
 Background
 ----------
 
-When computer first came about, one of the first operating systems to arrive was Unix. It was designed to run as a multi-user system on mainframe computers, with users connecting to it remotely via individual terminals. These terminals were extremely simplistic and consisted primarily of a keyboard and screen. 
-
-Compared to graphics, text is very light on resources. Because of this, older machines could run dozens of terminals even across the slowest of networks. Despite the nature of terminals, users were still able to interact with programs quickly and efficiently. The commands were also kept very short to reduce the number of keystrokes needed, which sped up the use of the terminal even more. This speed and efficiency is one reason why this text interface is still widely used today.
-
-When logged into a Unix mainframe via a terminal users still had to manage the sort of file management tasks that you might now perform with a mouse and a couple of windows. Whether creating files, renaming them, putting them into subdirectories or moving them around on disk, users could do everything entirely with a textual interface.
-
-Buddy utilizes an operating system called Linux. While it bears some similarities to Unix, it is most definitely not identical and has many major differences. Buddy's terminal operates using something called "Bash" for users to communicate via the command line. Bash is widely used on Linux systems, and is well documented. This page will cover some basic functions of Bash, including some simple scripting.
+Buddy's servers and compute nodes run on an operating system called Linux. Unlike Windows or MacOS, interfacing with a Linuxmachine mainly relies on using a terminal, where users can input commands to interact with the system. You can create, view, and edit files and scripts as well as schedule jobs with Slurm.
 
 Accessing the Terminal
 ----------------------
 
-The terminal can be accessed in one of two ways. One is via the web browser, and the other is via SSH. Upon opening, you will be greeted with a black screen and blinking cursor. 
+The terminal can be accessed in one of two ways. One is via the web browser, and the other is via SSH. Upon access, you will be greeted with a black screen and blinking cursor. 
 
 Web browser Access
 ~~~~~~~~~~~~~~~~~~
 
-The easiest way to access the terminal is via OnDemand. Once you are logged in, you can access the terminal by going to Clusters>Buddy Shell Access. This will open up a terminal for you in a new window.
+The easiest way to access the terminal is via OnDemand. Once you're logged in, you can access the terminal by going to Clusters > Buddy 2.5 Shell Access. This will open up a terminal for you in a new window.
 
 .. image:: /_static/img/ondemand_buddy_terminal.png
   :width: 100%
@@ -44,14 +38,15 @@ You will see the terminal in your web browser once you are logged in
 SSH Access
 ~~~~~~~~~~
 
-SSH access is also available for users who desire to use a preferred terminal emulator. You can ssh into buddy by connecting to ``username@buddy.uco.edu``. There are few applications available to utilize SSH
+SSH access is also available for those who prefer using a terminal emulator of their choice. You can ssh into Buddy by connecting to ``username@hpc.uco.edu``. There are few applications available on Windows and MacOS to utilize SSH:
 
 .. note::
   Please read the associated documentation for each of these softwares if you desire to use them. Users uncomfortable with this method of access are recommended to use the built in OnDemand terminal mentioned above for SSH and the OnDemand file browser for uploading and downloading files to Buddy.
 
 * **Windows**
 
-  * `Powershell`_: Powershell is a built in Windows terminal emulator that uses the Powershell language. You can access it via your start menu and connect Buddy by using the command ``ssh username@buddy.uco.edu``. You can exit the ssh prompt by typing ``exit``.
+  * `Powershell`_: Powershell is a built-in Windows terminal emulator that uses the Powershell language. You can access it via your start menu and connect Buddy by using the command ``ssh username@buddy.uco.edu``. You can exit the ssh prompt by typing ``exit``.
+  * `WSL`_: Windows Subsystem for Linux is a popular option for running a local Linux virtual machine on your own computer. WSL utilizes the built-in Windows terminal. You can use this terminal to SSH into Buddy.
   * `Putty`_: Putty is a popular option for Windows and can be downloaded from the Putty website.
   * `MobaXTerm`_: MobaXTerm is another common software and can be downloaded form the Moba website.
   * `WinSCP`_: WinSCP is a software that is not for SSH, but rather file transfer over SCP.
@@ -65,6 +60,7 @@ SSH access is also available for users who desire to use a preferred terminal em
   **Filezilla is no longer recommended** as it's installer comes bundled with other software! While the bundled offer is not malicious, this can be considered undesireable as the bundled application is installed in a deceptive manner and can interfere with your anti-virus.
 
 .. _Powershell: https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7.2
+.. _WSL: https://learn.microsoft.com/en-us/windows/wsl/about
 .. _Putty: https://www.putty.org/
 .. _MobaXTerm: https://mobaxterm.mobatek.net/
 .. _WinSCP: https://winscp.net/eng/index.php
@@ -74,14 +70,14 @@ SSH access is also available for users who desire to use a preferred terminal em
 Terminal Basics
 ---------------
 
-This section will teach everyday commands that will be used regularly in the terminal. On a terminal, you don't have a file browser, word, or any other "GUI" application. But that doesn't mean it is difficult to use. While there is a learning curve, once common commands are memorized, it's as easy as riding a bike.
+This section covers everyday commands used regularly in the terminal. On a terminal, you don't have a file browser, word, or any other "GUI" application. But that doesn't mean it is difficult to use. While there is a learning curve, once common commands are memorized, it's as easy as riding a bike.
 
 Navigation
 ~~~~~~~~~~
 
 Navigating files and folders is a fundamental aspect of using any computer. But within the terminal, we are not automatically shown what we want to see. We have to be more explicit. 
 
-Let's start by viewing the contents of our current folder using the "LiSt" command. 
+Let's start by viewing the contents of our current folder using the "List" command. 
 
 .. code-block:: console
 
