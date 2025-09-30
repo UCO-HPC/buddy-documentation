@@ -2,6 +2,6 @@ Partition,Name,Quantity,Node Type,Cores,RAM,Features
 general,node-##,126,Compute,2x8,64GB,Compute
 high-mem,node-##,11,High Memory,2x8,256GB,High Memory
 gpu,gpu-##,2,GPU,2x16,64GB,Tesla M40
-buddy-dtn-##,2,Data Transfer,2x8,64GB,OFFN+Globus
-storage-ib,1,Storage,2x8,64GB,Home/Project Storage
-storage-bak,1,Backup,2x26,256GB,On-site Backups
+,buddy-dtn-##,2,Data Transfer,2x8,64GB,OFFN+Globus
+,storage-ib,1,Storage,2x8,64GB,Home/Project Storage
+,storage-bak,1,Backup,2x26,256GB,On-site Backups
