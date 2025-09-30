@@ -3,12 +3,12 @@ Data Storage
 
 Home Folder
 -----------
-Every user is given 500Gb of storage in their home directory. If more storage is required consider using scratch storage or contact administration to see about allocating more space.
+The home folder is where all your personal files are stored. Users cannot access other users' home spaces. We are working on setting quotas for user's home spaces once we have Scratch Storage up and running. If you predict that you may need more than several terabytes (TB) of storage, contact us.
 
 Project Space
 -------------
-If you are working with a group of users you might want to consider using a project space. Upon request we will create a directory and grant a group of users access to it with one user being the owner. We will also adjust read and write permissions to suit the needs of your group.
+If you are working with a group of users you might want to consider using a project space. Upon request, we can create a directory and grant a group of users access to it with one user being the owner. We can also adjust read and write permissions to suit the needs of your group.
 
-Scratch Storage
----------------
-If you have a large amount of data that needs to be stored or if you have data that is generated and doesn't need to be stored for a long time consider using scratch storage. Scratch storage is large but volitile to data stored here needs to be backed up off site or disposible.
+Scratch Storage (Coming Soon)
+-----------------------------
+If you run jobs that tend to write a lot of temporary data to disk, or you need to temporarily store data for a very short duration, consider using scratch storage. Scratch storage is meant to be large, fast, and volatile. Scratch storage will be cleared out on a regular basis (schedule TBD). Make sure you regularly check and backup any storage you may need long-term that is in scratch storage.

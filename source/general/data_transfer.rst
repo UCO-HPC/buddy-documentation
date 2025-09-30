@@ -4,17 +4,17 @@ Data transfer to and from buddy can be done in several ways depending on your ne
 
 Using SFTP or SCP
 -----------------
-Small files can be transfered to and from Buddy using a file transfer protol such as SFTP or SCP however, for files greater than 2Gb, please use Globus to increase upload speed and to avoid slowing down the cluster for other users.
+Small files can be transfered to and from Buddy using a file transfer protol such as SFTP or SCP.
 
 Using Github
 ------------
-For source code it might be preferrable to use git to keep data on Buddy synced with a project. This is acomplished by commiting changes on your local machine, pushing them up to a repository, and pulling the changes down onto Buddy. However, if the file size is greater than 2Gb, please use Globus to increase upload speed and to avoid slowing down the cluster for other users.
+For source code it might be preferrable to use git to keep data on Buddy synced with a project. This is acomplished by commiting changes on your local machine, pushing them up to a repository, and pulling the changes down onto Buddy. 
 
-Using Globus
-------------
-For files that are larger than 2Gb, Globus is the prefered method for moving data between the cluster and another source. This can be accomplished by doing the following:
+Using Globus (Coming Soon)
+--------------------------
+For files that are larger than 20Gb, Globus is the prefered method for moving data between the cluster and another source. This can be accomplished by doing the following:
 
-1. Make an Account and Obtain a Golbus ID
+1. Make an Account and Obtain a Globus ID
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    1. Visit `globusid.org <https://www.globusid.org/>`_
    2. Click ``create a Globus ID``
