@@ -19,19 +19,20 @@ Partitions are an organizational structure in slurm which allows nodes to be gro
     Name          Time limit                             Description
 =============    ==============    ===============================================================
 general          5 days            Used for most jobs
-general-long     30 days           Used for jobs that are expected to run for a long time
+long             30 days           Used for jobs that are expected to run for a long time
 high-mem         5 days            Used for jobs which are expected to have high memory usage
 high-mem-long    30 days           Used for long jobs which are expected to have high memory usage
 gpu              5 days            Used for gpu jobs
 gpu-long         30 days           Used for gpu jobs which are expected to run for a long time
 testing          2 days            Reserved for our internal testing
+gpu-test         2 days            Reserverd for our internal testing
 =============    ==============    ===============================================================
 
 We recommend that you use the partition that is most appropriate to your application. 
 
 Cores
 ^^^^^
-Each node has 20 cores so the product of --tasks-per-node and --cpus-per-task should not exceed 20
+Each compute node has 16 cores so the product of --tasks-per-node and --cpus-per-task should not exceed 16
 
 Commands
 --------
