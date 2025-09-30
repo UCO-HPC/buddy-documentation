@@ -1,7 +1,7 @@
 Open OnDemand
 =============
 
-Open OnDemand is our new and improved interface for accessing HPC resources on Buddy. Open OnDemand is developed and maintained by Ohio Supercomputing Center. You can access it by visiting https://buddy.uco.edu. This document describes how to access and use OnDemand and it's services.
+Open OnDemand is our new and improved interface for accessing HPC resources on Buddy. Open OnDemand is developed and maintained by the Ohio Supercomputing Center. You can access it by visiting hpc.uco.edu.
 
 .. image:: /_static/img/ondemand_home.png
   :width: 100%
@@ -10,7 +10,7 @@ Open OnDemand is our new and improved interface for accessing HPC resources on B
 Access and Login
 ----------------
 
-OnDemand can be accessed by visiting https://buddy.uco.edu. You will login using the credentials provided by CREIC. If you do not already have an account, or you require a password reset, please email hpc@uco.edu for assistance. Please note that while the username may match yours at uco, this account is not connected to your UCO credentials.
+Login using the credentials provided in the email you receive once having an account created. If you do not already have an account, or you require a password reset, please email hpc@uco.edu for assistance. Please note that while the username may match your UCO account, this account is not connected to your UCO credentials.
 
 .. image:: /_static/img/ondemand_login.png
   :width: 50%
@@ -29,7 +29,7 @@ Buddy has a number of interactive applications available for use. You can access
   :align: center
   :alt: Buddy OnDemand Nav Interactive Apps
 
-As an example, we will access Jupyter. Below is what the application will most likely look like. We will touch on each of the available options, including the advanced tab. 
+For example, to launch a Jupyter interactive session, below is what the menu to launch it would look like. The various options that can be configured before launching an interactive application are detailed below.  
  
 .. image:: /_static/img/ondemand_buddy_jupyter.png
   :width: 75%
@@ -51,7 +51,7 @@ This is the number of hours your interactive application will run for. Please no
 Number of Cores
 ~~~~~~~~~~~~~~~
 
-Number of cores for your job. You can reserve up to 20, but only use the minimum required. Two is typically best for classroom jobs, and most research jobs. Twenty will reserve the entire node for just that application. This should only be done when absolutely needed. 
+Number of cores for your job. You can reserve up to 16, but only use the minimum required. Two is typically best for classroom jobs, and most research jobs. Sixteen will reserve the entire node for just that application. This should only be done when absolutely needed. 
 
 Version
 ~~~~~~~
@@ -68,12 +68,12 @@ Additional modules can be added here. This utilizes LMOD, and will automatically
 Other Options
 ~~~~~~~~~~~~~
 
-Certain applications contain other options. For example, Jupyter let's you choose between a Lab or Notebook session. Jupyter also offers ready to select module groups like "Data Science".  
+Certain applications contain other options. For example, Jupyter lets you choose between a Lab or Notebook session. Jupyter also offers ready to select module groups like "Data Science".  
 
 File Browser
 ------------
 
-Ondemand offers a built in file browser. You can access it by going to Files>Home Directory. The file browser has options to upload files, edit text files, general file management, and more all within the web browser! Applications like Filezilla are no longer needed to move data to and from Buddy. 
+Ondemand offers a built in file browser. You can access it by going to Files > Home Directory. The file browser has options to upload files, edit text files, general file management, and more all within the web browser! 
 
 .. image:: /_static/img/ondemand_file_browser.png
   :width: 100%

@@ -9,7 +9,7 @@ Example Script
    #!/bin/bash
    #SBATCH --job-name=g16
    #SBATCH --nodes=2
-   #SBATCH --cpus-per-task=20
+   #SBATCH --cpus-per-task=16
    #SBATCH --output=g16-%j.out
    #SBATCH --partition=general
    
