@@ -8,6 +8,7 @@ Buddy Docs
    :glob:
 
    quickstart/about.rst
+   quickstart/requests.rst
    quickstart/etiquette.rst
    quickstart/connection.rst
 
@@ -23,7 +24,6 @@ Buddy Docs
    general/lmod.rst
    general/data_storage.rst
    general/data_transfer.rst
-   general/requests.rst
    general/tips.rst
 	  
 .. toctree::

@@ -29,7 +29,7 @@ A classroom account is one given to students if they will be using Buddy as part
 
 Software Request
 ----------------
-To make a sofware request please email hpc@uco.edu with the name of the software and version information or other requirements if they exist.
+To make a software request please email hpc@uco.edu with the name of the software and version information or other requirements if they exist.
 
 .. note::
    While we try to provide requested software this might not always be possible or may take a long time to work through installation and integration issues. We will keep you updated as mush as possible throughout the process and will try to work with you to fulfill your needs. That being said, most software can be installed quickly and easily.
