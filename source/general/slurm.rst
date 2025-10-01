@@ -25,7 +25,7 @@ high-mem-long    30 days           Used for long jobs which are expected to have
 gpu              5 days            Used for gpu jobs
 gpu-long         30 days           Used for gpu jobs which are expected to run for a long time
 testing          2 days            Reserved for our internal testing
-gpu-test         2 days            Reserverd for our internal testing
+gpu-test         2 days            Reserved for our internal testing
 =============    ==============    ===============================================================
 
 We recommend that you use the partition that is most appropriate to your application. 

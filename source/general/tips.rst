@@ -17,7 +17,7 @@ If you often run the same command with different input files as is common with p
   #!/bin/bash
   #SBATCH --job-name=autoencoder
   #SBATCH --nodes=1
-  #SBATCH --cpus-per-task=20
+  #SBATCH --cpus-per-task=16
   #SBATCH --output=script_outputs/%j-autoencoder.out
   #SBATCH --partition=general
   
