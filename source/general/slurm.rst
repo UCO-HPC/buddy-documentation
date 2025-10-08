@@ -6,11 +6,11 @@ Terminology
 
 Tasks
 ^^^^^
-A task is a command which is run in parallel by slurm using srun. Tasks can be used to run more than one command at the same time instead of one after the other, increasing performance
+A task is a singular process that can either be run alone or with other identical tasks in parallel. Depending on the program or script that the task runs, performance can improve when tasks are run in parallel compared to running one after the other.
 
 Partitions
 ^^^^^^^^^^
-Partitions are an organizational structure in slurm which allows nodes to be grouped together and for certain options and restrictions to be placed on them. We have a few partitions on Buddy:
+Partitions are an organizational structure within Slurm that allows nodes to be grouped together with certain options and restrictions placed on them. These are the partitions on Buddy:
 
 .. tip::
    this information can be found using the ``sinfo`` command in the terminal
@@ -32,14 +32,18 @@ We recommend that you use the partition that is most appropriate to your applica
 
 Cores
 ^^^^^
-Each compute node has 16 cores so the product of --tasks-per-node and --cpus-per-task should not exceed 16
+Each compute node has 16 cores. When setting up scripts with Sbatch, (which is discussed below) the product of --tasks-per-node and --cpus-per-task should not exceed 16.
 
 Commands
 --------
-sbatch          used allocate resource and run the given script using slurm
+=============    ===============================================================
+    Name                                    Description
+=============    ===============================================================
+sbatch          used allocate resources and run the given script using slurm
 srun            used withing an sbatch file to run a command as a parallel task
 smap            displays the jobs currently running on the cluster
 sinfo           displays information about down and running nodes aswell as partition information
+=============   ===============================================================
 
 Sbatch Parameters
 -----------------
