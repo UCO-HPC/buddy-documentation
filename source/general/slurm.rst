@@ -36,9 +36,9 @@ Each compute node has 16 cores. When setting up scripts with Sbatch, (which is d
 
 Commands
 --------
-=============    ===============================================================
+=============   ===============================================================
     Name                                    Description
-=============    ===============================================================
+=============   ===============================================================
 sbatch          used allocate resources and run the given script using slurm
 srun            used withing an sbatch file to run a command as a parallel task
 smap            displays the jobs currently running on the cluster
