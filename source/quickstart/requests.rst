@@ -1,6 +1,12 @@
 Account and Software Requests
 =============================
 
+These are the requirements for obtaining an account on Buddy:
+
+- If you are a current UCO faculty member, you just need to provide your name and UCO email address.
+- If you are a current UCO student, you will need to have a professor send an email to hpc@uco.edu on your behalf to get an account created for you.
+- If you are a non-UCO faculty member within the state of Oklahoma collaborating with a UCO faculty member or attending a UCO-hosted workshop, please provide the name of your institution, full name, and email address.
+
 General Account Request
 -----------------------
 A general account is an account made for professors or researchers and their colaborators and is given normal permissions on Buddy. To make a general account request please email hpc@uco.edu and provide us with the following information:
