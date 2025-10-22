@@ -70,28 +70,33 @@ SSH access is also available for those who prefer using a terminal emulator of t
 Terminal Basics
 ---------------
 
-This section covers everyday commands used regularly in the terminal. On a terminal, you don't have a file browser, word, or any other "GUI" application. But that doesn't mean it is difficult to use. While there is a learning curve, once common commands are memorized, it's as easy as riding a bike.
+This section covers everyday commands used regularly in the terminal. On a terminal, you don't have a file browser, desktop, or any graphical interface, but you can still navigate the system using easy-to-learn basic commands. 
 
 Navigation
 ~~~~~~~~~~
 
-Navigating files and folders is a fundamental aspect of using any computer. But within the terminal, we are not automatically shown what we want to see. We have to be more explicit. 
+Navigating files and folders is a fundamental aspect of using any computer. But within the terminal, we are not automatically shown what we want to see. We have to be more explicit.
 
-Let's start by viewing the contents of our current folder using the "List" command. 
+In Linux, we refer to a folder as a directory or a file path. For example, when you first log in, you are automatically placed in the "/home/<username>" directory (also referred to using this symbol: ~ ). If you were to create a folder here, its file path would be "/home/your-username/foldername"
+
+Let's start by viewing the contents of the folder we are currently in by using the "ls" (list) command. 
 
 .. code-block:: console
 
   [skelting1@buddy ~]$ ls
   batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
 
-You can view the contents of a directory by passing a file path to the "LiSt"
+Here, we can see that we have two files (batchjob.sh and slurm_output.txt) and two folders (Data_Folder_01 and Data Folder 02) inside our home directory (/home/your-username).
+You can view the contents of a specific folder by typing "ls" followed by the name or path of the folder. 
 
 .. code-block:: console
 
   [skelting1@buddy ~]$ ls Data_Folder_01
   data-set-01.dat  data-set-02.dat  meta
 
-Let's pass a "List" option to our "LiSt" command.
+Here, we can see that the Data_Folder_01 had two files and another folder within it.
+
+We can also use "ls" to show more details about the contents of a folder. Let's pass a "-l" option to our "ls" command:
 
 .. code-block:: console
 
@@ -102,16 +107,16 @@ Let's pass a "List" option to our "LiSt" command.
   drwxr-xr-x 2 skelting1 skelting1  10 Apr 21 11:37 Data Folder 02
   -rw-r--r-- 1 skelting1 skelting1   0 Apr 21 11:37 slurm_output.txt
 
-There's a lot of information to unpack here. For now, we will share that the date and time shows when a file was modified last. 
+This shows us the permissions of the file or folder, the owner, the group, and the date that it was created/last modified.
 
-This is all well and good, but where are we? Let's "Print (our) Working Directory"
+To determine where in the file system we are, we can use the "pwd" command to print our working directory:
 
 .. code-block:: console
 
   [skelting1@buddy ~]$ pwd
   /home/skelting1/
 
-This path is our home folder. The username will of course differ. Your home folder is where all of your files will be stored on Buddy. When you login, this is the first folder you will see. But what if we want to access our other folders? Let's "Change Directory"
+This path is our home folder. The username will of course differ. Your home folder is where all of your files will be stored on Buddy. When you login, this is the first folder you will see. But what if we want to access our other folders? Let's "Change Directory" with the "cd" command:
 
 .. code-block:: console
   
@@ -146,21 +151,21 @@ Neat! But what if we are several folders in and just want to go up a folder? Let
   [skelting1@buddy meta]$ pwd
   /home/skelting1/~/Data_Folder_01/meta
 
-One option for going up a folder is to give our ``cd`` command the absolute path of the parent directory: ``/home/skelting1/Data_Folder_01/`` but, this is highly inefficient. Let's examine another special folder. We will need to add another option to our "LiSt" command to see what they are.
+One option for going up a folder is to give our ``cd`` command the absolute path of the parent directory: ``/home/skelting1/Data_Folder_01/`` but, this quite tedious to type out. Let's take a look at some special folders that exist in every directory. We will need to add another option to our "ls" command to see what they are.
 
 .. code-block:: console
 
   [skelting1@buddy meta]$ ls -a
   .  ..  info.json
 
-The "All" option for ``ls`` shows us some directories we couldn't see before. One is a directory named ``.`` and the other is a directory named ``..``. ``.`` represents the current directory, and ``..`` represents the directory above it. Going up a directory is as easy as
+The "All" option for ``ls`` shows us some directories we couldn't see before. One is a directory named ``.`` and the other is a directory named ``..``. The ``.`` represents the current directory, and ``..`` represents the directory above it. Going up a directory is as easy as:
 
 .. code-block:: console
 
   [skelting1@buddy meta]$ cd ..
   [skelting1@buddy Data_Folder_01]$  
 
-With the ``..`` relative path in your tool-belt you can go anywhere by building up a longer path. For example, to jump from a directory to a sibling directory, you could go up a directory and then down with two two separate commands or you can jump directly using one command
+With the ``..`` relative path in your toolbelt, you can navigate anywhere by building up a longer path. For example, to jump from a directory to a sibling directory, you could go up a directory and then down with two separate commands, or you can just jump directly using one command:
 
 .. code-block:: console
 
@@ -170,28 +175,28 @@ With the ``..`` relative path in your tool-belt you can go anywhere by building 
   [skelting1@buddy Data_Folder_02]$ pwd
   /home/skelting1/Data_Folder_02
 
-You'll notice if you try to change directory to ``.`` that nothing really happens. This is the intended behavior as we are changing directory to our current directory. Which of course leaves us in the same place! Let's go back to our home folder and review a special case you will most likely encounter.
+You'll notice that if you try to change your directory to ``.``, nothing happens. This is the intended behavior as we are changing into the directory we are currently in. Let's go back to our home folder and review a special case you will most likely encounter.
 
 .. code-block:: console
 
   [skelting1@buddy ~]$ ls
   batchjob.sh  Data_Folder_01  Data Folder 02  slurm_output.txt
 
-You'll notice that one of our folder names has spaces in it. This is generally not recommended from a convenience standpoint, but it happens often for one reason or another. If we try to ``cd`` into this folder, odd things happen.
+You'll notice that one of our folder names has spaces in it. Linux does not treat spaces like any other operating system. If we try to ``cd`` into this folder, it will not work:
 
 .. code-block:: console
   
   [skelting1@buddy ~]$ cd Data Folder 02
   -bash: cd: Data: No such file or directory
 
-Our ``cd`` command only wants to take the first argument. In order to read spaces, we have to use what's called an "Escape Character". This is simply a backslash ``\``, not to be confused with the forward-slash ``/`` we use for paths. So how is the escape character used?
+Our ``cd`` command only sees "Data" as the directory, so it does not find it. In order to read spaces, we have to use what's called an "Escape Character". This is simply a backslash ``\``, not to be confused with the forward-slash ``/`` we use for paths. So how is the escape character used?
 
 .. code-block:: console
 
   [skelting1@buddy ~]$ cd Data\ Folder\ 02
   [skelting1@buddy Data Folder 02]$ 
 
-This may not seem intuitive to some users, so there is also the option of putting the path in quotes.
+This may not seem intuitive at first, but there is also the option of putting the entire path in double quotes:
 
 .. code-block:: console
 
@@ -200,7 +205,7 @@ This may not seem intuitive to some users, so there is also the option of puttin
 
 .. note:: 
 
-  You may find yourself annoyed by having to always type out these paths completely. Thankfully, you can use the ``Tab`` key to auto-complete. If you press tab and nothing happens, either there is nothing beginning with that name, there are more than one items starting with that particular set of charachters, or you've made a syntax error. You may try hitting ``Tab`` three times to show available options. Alternatively, backspace over your command and type ``ls`` and/or ``pwd`` to ensure you are in the right directory and the item is actually in there. 
+  You may find yourself annoyed by having to always type out these paths completely. Thankfully, you can use the ``Tab`` key to auto-complete. If you press tab and nothing happens, either: there is no file or folder that starts with that name, or there is more than one item starting with that particular set of characters, or you've made a syntax error (mis-spelled command). You may try hitting ``Tab`` three times to show all available options. Alternatively, erase your command and type ``ls`` and/or ``pwd`` to ensure you are in the right directory and that the item is actually there. 
 
 Creating and Deleting Files and Directories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
