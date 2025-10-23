@@ -76,25 +76,24 @@ Common sbatch parameters
 | -t,--time         | SBATCH_TIMELIMIT          | max time for partition          | the maximum amount of time the job is allowed to run |
 +-------------------+---------------------------+---------------------------------+------------------------------------------------------+
 
-Interactive Job with salloc
+Interactive Jobs with salloc
 ---------------------------
 
 An interactive job is a job that returns a command line prompt (instead of running a script) when the job runs. Interactive jobs are useful when debugging or interacting with an application. Interactive jobs can also be useful in building Slurm batch scripts to run non-interactively. The ``salloc`` command is used to submit an interactive job to Slurm. When the job starts, a command line prompt will appear on one of the compute nodes assigned to the job. From here commands can be executed using the resources allocated on the local node.
 
 The following example job is assigned 2 nodes with 4 CPUs and 4GB of memory each:
 
-```
-rmaher@ssh1:~ salloc --account=rmaher --nodes=2 --ntasks-per-node=4 --mem-per-cpu=1GB --cpus-per-task=1
-salloc: Granted job allocation 5382
-rmaher@node-106:~ srun hostname
-node-106.hpc.uco.edu
-node-106.hpc.uco.edu
-node-106.hpc.uco.edu
-node-106.hpc.uco.edu
-node-107.hpc.uco.edu
-node-107.hpc.uco.edu
-node-107.hpc.uco.edu
-node-107.hpc.uco.edu
-```
+.. code-block:: console
+        rmaher@ssh1:~ salloc --account=rmaher --nodes=2 --ntasks-per-node=4 --mem-per-cpu=1GB --cpus-per-task=1
+        salloc: Granted job allocation 5382
+        rmaher@node-106:~ srun hostname
+        node-106.hpc.uco.edu
+        node-106.hpc.uco.edu
+        node-106.hpc.uco.edu
+        node-106.hpc.uco.edu
+        node-107.hpc.uco.edu
+        node-107.hpc.uco.edu
+        node-107.hpc.uco.edu
+        node-107.hpc.uco.edu
 
 In the above example, srun is used within the job from the first compute node to run a command once for every task in the job on the assigned resources. srun can be used to run on a subset of the resources assigned to the job.
