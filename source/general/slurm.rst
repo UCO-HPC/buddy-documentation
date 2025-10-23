@@ -84,6 +84,7 @@ An interactive job is a job that returns a command line prompt (instead of runni
 The following example job is assigned 2 nodes with 4 CPUs and 4GB of memory each:
 
 .. code-block:: console
+
         rmaher@ssh1:~ salloc --account=rmaher --nodes=2 --ntasks-per-node=4 --mem-per-cpu=1GB --cpus-per-task=1
         salloc: Granted job allocation 5382
         rmaher@node-106:~ srun hostname
