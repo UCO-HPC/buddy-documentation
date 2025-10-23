@@ -85,16 +85,16 @@ The following example job is assigned 2 nodes with 4 CPUs and 4GB of memory each
 
 .. code-block:: console
 
-        rmaher@ssh1:~ salloc --account=rmaher --nodes=2 --ntasks-per-node=4 --mem-per-cpu=1GB --cpus-per-task=1
-        salloc: Granted job allocation 5382
-        rmaher@node-106:~ srun hostname
-        node-106.hpc.uco.edu
-        node-106.hpc.uco.edu
-        node-106.hpc.uco.edu
-        node-106.hpc.uco.edu
-        node-107.hpc.uco.edu
-        node-107.hpc.uco.edu
-        node-107.hpc.uco.edu
-        node-107.hpc.uco.edu
+    [rmaher@ssh1 ~]$ salloc --nodes=2 --ntasks-per-node=4 --mem-per-cpu=1GB --cpus-per-task=1
+    salloc: Granted job allocation 5382
+    [rmaher@node-106 ~]$ srun hostname
+    node-106.hpc.uco.edu
+    node-106.hpc.uco.edu
+    node-106.hpc.uco.edu
+    node-106.hpc.uco.edu
+    node-107.hpc.uco.edu
+    node-107.hpc.uco.edu
+    node-107.hpc.uco.edu
+    node-107.hpc.uco.edu
 
 In the above example, srun is used within the job from the first compute node to run a command once for every task in the job on the assigned resources. srun can be used to run on a subset of the resources assigned to the job.
