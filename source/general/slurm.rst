@@ -40,9 +40,9 @@ Commands
     Name                                    Description
 =============   ===============================================================
 sbatch          used allocate resources and run the given script using slurm
-srun            used withing an sbatch file to run a command as a parallel task
+srun            used within an sbatch file or in an interactive session to run a command as a parallel task
 smap            displays the jobs currently running on the cluster
-sinfo           displays information about down and running nodes aswell as partition information
+sinfo           displays node status (idle, down, allocated, ...) and partition information
 =============   ===============================================================
 
 Sbatch Parameters
@@ -97,4 +97,4 @@ The following example job is assigned 2 nodes with 4 CPUs and 4GB of memory each
     node-107.hpc.uco.edu
     node-107.hpc.uco.edu
 
-In the above example, srun is used within the job from the first compute node to run a command once for every task in the job on the assigned resources. srun can be used to run on a subset of the resources assigned to the job.
+In the above example, ``srun`` is used within the job from the first compute node to run a command once for every task in the job on the assigned resources. ``srun`` can be used to run on a subset of the resources assigned to the job.
