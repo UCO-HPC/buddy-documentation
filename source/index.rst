@@ -33,7 +33,13 @@ Buddy Docs
    :glob:
 
    software/overview
-   software/*
+   software/ansys
+   software/comsol
+   software/conda
+   software/gaussian
+   software/jupyter_python
+   software/buddygpt
+   software/r_studio
    
 .. toctree::
    :maxdepth: 2
