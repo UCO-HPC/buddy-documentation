@@ -4,7 +4,7 @@ API
 To use the API, you will first need to find your API key, accessible from the UI. Click on your user avatar and navigate to Settings, and then the Account page in settings. Here you will be able to see the API Keys. Expand this section and copy either the JWT token or create an API key.
 
 .. image:: /_static/img/buddygpt_api.PNG
-   :width: 50%
+   :width: 100%
    :align: center
    :alt: BuddyGPT Settings page with API key information
 
@@ -19,57 +19,6 @@ For an OpenAI API-compatible response, use:
 
    https://ai.hpc.uco.edu/api/chat/completions
 
-
-Response Formats
-----------------
-
-Streaming Response
-~~~~~~~~~~~~~~~~~~
-
-For a streaming response, results will be returned in the following format:
-
-.. code-block:: json
-
-   {
-     "id": "chatcmpl-123",
-     "object": "chat.completion.chunk",
-     "created": 1677652288,
-     "model": "llama-3.1-70b",
-     "choices": [{
-       "index": 0,
-       "delta": {
-         "content": "Hello"
-       },
-       "finish_reason": null
-     }]
-   }
-
-Non-Streaming Response
-~~~~~~~~~~~~~~~~~~~~~~
-
-For a non-streaming response, results will be returned in the following format:
-
-.. code-block:: json
-
-   {
-     "id": "chatcmpl-123",
-     "object": "chat.completion",
-     "created": 1677652288,
-     "model": "llama-3.1-70b",
-     "choices": [{
-       "index": 0,
-       "message": {
-         "role": "assistant",
-         "content": "Hello! How can I help you today?"
-       },
-       "finish_reason": "stop"
-     }],
-     "usage": {
-       "prompt_tokens": 9,
-       "completion_tokens": 12,
-       "total_tokens": 21
-     }
-   }
 
 Accessing Stored LLMs on UCO HPC
 ---------------------------------
@@ -114,6 +63,28 @@ Downloading Transformers Compatible Models
 
 In order to install models from Hugging Face, you will need to create an account using https://huggingface.co/join. Once you have an account, you will then need to generate a token for our system using the documentation provided under the `User access tokens <https://huggingface.co/docs/hub/en/security-tokens>`_ page. If you only intend to install publicly available models and data, then usually read permissions are sufficient for the token.
 
+Token Type Recommendation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When creating your Hugging Face access token (Settings > Access Tokens), choose the token type based on your use case:
+
+- **Read (Recommended):** Best for most users in this guide. Allows downloading models and datasets.
+- **Write:** Only needed if you plan to upload files or push changes to repositories on Hugging Face.
+- **Fine-grained:** Useful if you want to limit access to specific repositories while keeping only the minimum required permissions.
+
+For the steps in this section (``hf auth login`` and model download), a **Read** token is recommended.
+
+.. image:: /_static/img/buddygpt_api_hf_token.PNG
+   :width: 100%
+   :align: center
+   :alt: Create token on Hugging Face from settings page
+
+.. image:: /_static/img/buddygpt_api_hf_token2.PNG
+   :width: 100%
+   :align: center
+   :alt: Access Token Output
+
+
 After you have your account set up, you can search models using the `Hugging Face Models <https://huggingface.co/models>`_ page. Here you can refine your search based on the task you want to complete, model size, and dependent libraries. Once you have identified a model that you would like to run, review the model card, paying attention to the libraries needed and examples provided. If necessary, accept the terms of use for the model. For example, Meta's Llama 3.1 requires you to accept a community license agreement. However, at the time of writing this documentation, OpenAI's gpt-oss-20b does not require a license agreement.
 
 .. note::
@@ -134,54 +105,101 @@ When prompted for the token, provide the one you generated at the beginning of t
 
    .. code-block:: bash
 
-      chmod o-r /projects/$USER/hf_transformers/stored_tokens
-      chmod o-r /projects/$USER/hf_transformers/token
+      chmod o-r /opt/ai_models/.cache/stored_tokens
+      chmod o-r /opt/ai_models/.cache/token
 
-Now that we have our tokens set up and we have accepted the terms of use, we can install our model from the command line. Here, we will install a very simple Gemma model (``google/gemma-3-270m-it``) into our directory ``/projects/$USER/hf_transformers/gemma-3-270m-it``:
+Now that we have our tokens set up and we have accepted the terms of use, we can install our model from the command line. Here, we will install a very simple Gemma model (``google/gemma-3-270m-it``) into our directory ``/opt/ai_models/gemma-3-270m-it``:
 
 .. code-block:: bash
 
-   hf download --local-dir /projects/$USER/hf_transformers/gemma-3-270m-it google/gemma-3-270m-it
+   hf download --local-dir /opt/ai_models/gemma-3-270m-it google/gemma-3-270m-it
 
 .. tip::
    On Hugging Face, there are often different types of LLMs. For example, some have "instruct" in their name or specify that they are instruct models. Instruct models are, as the name implies, instruction models. These models are most likely what you want as they are ideal for specifying tasks for the LLM to perform and are the models used in common chat interfaces. In contrast, the base models make no assumption about structure and are attempting to only complete the text provided.
 
 After this installation completes, you will then have access to your installed model! See the next section for instructions on running this LLM from Python.
 
-Example Usage
--------------
+Downloading and Uploading Models to UCO HPC
+-------------------------------------------
 
-Python Example
-~~~~~~~~~~~~~~
+You can bring models from Hugging Face onto the UCO HPC cluster using either direct downloads over SSH or by dragging and dropping via the Open OnDemand web interface.
+For heavily quantized GGUF models meant for ``llama-server``, it is often practical to download them straight to the cluster via SSH.
 
-To use the endpoint, insert your API key in the example Python code below:
+1. **Connect to the HPC server:**
+   
+   .. code-block:: bash
 
-.. code-block:: python
+      ssh username@hpc.uco.edu
 
-   import requests
+   .. image:: /_static/img/buddygpt_api_ssh.PNG
+      :width: 100%
+      :align: center
+      :alt: HPC SSH connection example
 
-   API_KEY = "your-api-key-here"
-   API_URL = "https://ai.hpc.uco.edu/api/chat/completions"
+2. **Setup your environment:**
+   Create a Python virtual environment and install the ``huggingface_hub`` library using ``pip``.
 
-   headers = {
-       "Authorization": f"Bearer {API_KEY}",
-       "Content-Type": "application/json"
-   }
+   .. code-block:: bash
 
-   data = {
-       "model": "llama-3.1-70b",
-       "messages": [
-           {"role": "user", "content": "Hello, how are you?"}
-       ],
-       "stream": False
-   }
+      python -m venv ai_hub
+      source ai_hub/bin/activate
+      pip install huggingface_hub
 
-   response = requests.post(API_URL, headers=headers, json=data)
-   result = response.json()
+3. **Authentication:**
+   Retrieve an API Key from Hugging Face (under Settings > Access Tokens) and authenticate. 
+   You also need to set ``HF_HOME`` to point to the cache directory.
+   
+   .. code-block:: bash
 
-   print(result["choices"][0]["message"]["content"])
+      hf auth login --token <API Key>
+      export HF_HOME=/opt/ai_models/.cache
+   
+   .. image:: /_static/img/buddygpt_api_hf_login.PNG
+      :width: 100%
+      :align: center
+      :alt: HPC SSH connection example
 
-This will return output in a JSON format along with metadata.
+4. **Find Model Weights (GGUF):**
+   You will need GGUF model formats to run on ``llama``. On Hugging Face, look under Quantizations (``unsloth`` models are usually pretty good). It's recommended to find weights with the ``Q4_K_M`` quantization. Note the repository name and exact filename(s).
+
+5. **Download and Link:**
+   Use the CLI to pull the model and generate a symbolic link to the destination directory. Replace the parameters with your model info.
+   
+   .. code-block:: bash
+
+      hf download <repo name> --include="<file name pattern>"
+      # Link to the first (or only) file
+      ln -s $(hf download <repo name> <filename>) /opt/ai_models/<short name>
+
+   .. note::
+      To list downloaded models at any time, run: ``hf cache ls``
+
+
+Models and Building llama-server
+--------------------------------
+
+If you plan to run models using ``llama-server``, jobs should be scheduled to run on a **GPU node**. You can view example scripts at `/opt/creic-server-scripts/ai-scripts`.
+
+If ``llama.cpp`` is not already built with CUDA or if you need to build it yourself, you will need to load dependencies and compile from source.
+
+**Prerequisites:** Needs ``CUDA-12.8`` and ``CMake``.
+
+.. code-block:: bash
+   
+   module load CUDA/12.8 CMake/4.0.3-GCCcore-14.3.0 GCCcore/14.3.0
+
+**Compilation Steps:**
+
+.. code-block:: bash
+
+   git clone https://github.com/ggml-org/llama.cpp.git
+   mkdir llama.cpp/build
+   cd llama.cpp/build
+   cmake .. -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=52
+   cmake --build . --config Release -j 30
+
+Once built, you can execute the compiled binaries with your downloaded GGUF models!
+
 
 cURL Example
 ~~~~~~~~~~~~
