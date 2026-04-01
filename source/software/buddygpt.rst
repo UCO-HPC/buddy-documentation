@@ -21,6 +21,58 @@ There are two modalities for interacting with BuddyGPT, UI, and API, and additio
 .. danger::
    Do not input, by any method, any data into these systems that your research institution would consider sensitive or proprietary. Do not input, by any method, any data into these systems that is regulated by State or Federal Law. This includes, but is not limited to, HIPAA data, Export Controlled data, personal identification numbers (e.g. SSNs) or biometric data.
 
+AI Implementation Details
+-------------------------
+
+Deployment Overview
+~~~~~~~~~~~~~~~~~~~
+
+BuddyGPT is deployed on UCO-managed infrastructure and currently exposes two user interfaces:
+
+- **Web UI:** Interactive chat/workspace experience for users at https://ai.hpc.uco.edu/
+- **API:** OpenAI-compatible API endpoint documented in :doc:`buddygpt_api`
+
+The platform includes a retrieval pipeline backed by PostgreSQL for RAG workflows and supports multi-model access across approved open-source LLMs.
+
+GPU and Hardware Inventory (How to Check)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Because hardware inventory can change over time, use the following commands on an AI node to get the latest deployment details:
+
+.. code-block:: bash
+
+   # GPU count, model names, and total memory per GPU
+   nvidia-smi --query-gpu=index,name,memory.total,driver_version --format=csv
+
+   # Active utilization snapshot
+   nvidia-smi --query-gpu=timestamp,name,utilization.gpu,utilization.memory,memory.used,memory.total --format=csv
+
+   # Optional: full node hardware summary
+   lscpu
+   free -h
+
+These commands provide the values commonly requested for AI implementation reporting:
+
+- **Number of GPUs**
+- **GPU model(s)**
+- **GPU memory size (VRAM)**
+- **Runtime utilization**
+
+Operational Metrics and Retention
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For service reporting and planning, track the following metrics on a recurring schedule:
+
+- **Availability:** uptime and API success rate
+- **Latency:** request latency (p50/p95/p99)
+- **Throughput:** requests per minute and generated tokens per minute
+- **Capacity:** GPU utilization, VRAM usage, and queue/wait time
+- **Quality/Safety:** moderated request counts and failure categories
+- **Adoption:** daily active users, weekly active users, and API key activity
+- **User retention:** cohort-style retention (for example, D7/D30 return usage)
+
+When publishing retention and usage metrics, report only aggregated data and avoid exposing user-identifiable activity.
+
 Access
 ------
 

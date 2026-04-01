@@ -55,6 +55,91 @@ For the Transformers framework, we provide the following models:
 
       /opt/ai_models
 
+Resource-Aware Model Selection (llmfit)
+---------------------------------------
+
+To quickly identify which models are the best fit for your current node resources (GPU, VRAM, RAM, and CPU), you can use `llmfit <https://github.com/AlexsJones/llmfit>`_.
+
+What llmfit provides
+~~~~~~~~~~~~~~~~~~~~
+
+- Detects current system hardware (including GPU details when available)
+- Scores models by fit, speed, context, and quality
+- Returns ranked recommendations for your current resources
+- Can be used in JSON mode for scripts and automation
+
+Install llmfit (Linux/macOS quick install)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   curl -fsSL https://llmfit.axjns.dev/install.sh | sh
+
+If your cluster does not allow this installer, build from source using the instructions in the llmfit repository.
+
+Quick commands
+~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   # Show detected system resources
+   llmfit --json system
+
+   # Show top recommended models for coding workloads
+   llmfit recommend --json --use-case coding --limit 5
+
+Detailed Best-Fit Script for Current Resources
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The script below writes hardware and recommendation outputs to JSON, then prints detailed information for each recommended model.
+
+.. code-block:: bash
+
+   #!/usr/bin/env bash
+   set -euo pipefail
+
+   OUT_DIR="${1:-llmfit_reports}"
+   USE_CASE="${2:-coding}"
+   LIMIT="${3:-5}"
+   mkdir -p "$OUT_DIR"
+
+   echo "Collecting detected hardware..."
+   llmfit --json system > "$OUT_DIR/system.json"
+
+   echo "Collecting recommended models..."
+   llmfit recommend --json --use-case "$USE_CASE" --limit "$LIMIT" > "$OUT_DIR/recommendations.json"
+
+   echo "Extracting model names..."
+   OUT_DIR="$OUT_DIR" python3 - << 'PY' > "$OUT_DIR/model_names.txt"
+   import os
+   import json
+
+   out_dir = os.environ["OUT_DIR"]
+   with open(f"{out_dir}/recommendations.json", "r", encoding="utf-8") as f:
+      data = json.load(f)
+
+   models = data.get("models", data if isinstance(data, list) else [])
+   for model in models:
+      name = model.get("name") or model.get("model") or model.get("id")
+      if name:
+         print(name)
+   PY
+
+   echo "Writing detailed model reports..."
+   while IFS= read -r model_name; do
+       [ -z "$model_name" ] && continue
+       safe_name=$(echo "$model_name" | tr '/ ' '__')
+       llmfit info "$model_name" > "$OUT_DIR/${safe_name}.txt"
+   done < "$OUT_DIR/model_names.txt"
+
+   echo "Done. Reports saved in: $OUT_DIR"
+
+.. note::
+   If your environment reports GPU memory incorrectly, use a manual override such as ``llmfit --memory=24G recommend --json --limit 5``.
+
+.. tip::
+   For scheduler integration, you can run llmfit as a local REST API on a node and query top runnable models programmatically.
+
 Downloading Transformers Compatible Models
 ------------------------------------------
 
