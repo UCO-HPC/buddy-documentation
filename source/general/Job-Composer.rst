@@ -36,42 +36,48 @@ From Default Template
 
    After you click the button, you can change the job options like below:
 
-   .. image:: buddy-documentation/source/_static/img/ondemand_default_jobmodify_1.png
+   .. image:: buddy-documentation/source/_static/img/ondemand_default_jobmodify1.png
       :alt: Jop options were displayed
 
    In the above example, the Name has been changed from default (Simple Sequential Job) to TestJob. After the name has been modified, hit the **Save** button and the modified job name will be replicated in the Job Composer page.
 
    Output:
-   // insert image here //
+   
+   .. image:: buddy-documentation/source/_static/img/ondemandjobs-default-modify2.png
+      :alt: TestJob is created
 
 3. Now, modify the submit script ``main_job.sh``.
 
    a. On the Job Composer page, hit the **Open Editor** button under Submit Script section.
 
-      // insert image here //
+      .. image:: buddy-documentation/source/_static/img/ondemand_jobmodify3.png
+         :alt: Open editor 
 
    b. In the text editor opening in a new tab, modify the Job Script with the below content.
 
-      // insert image here //
+      .. image:: buddy-documentation/source/_static/img/ondemand-jobs-default-modifyscript1.png
+         :alt: Modify the job script content
 
    c. After the job submission script ``main_job.sh`` has been updated, hit the **Save** button. Go back to the previous tab to see the updated script.
 
-      // insert image here //
+      .. image:: buddy-documentation/source/_static/img/ondemand_jobsmodifying4.png
+         :alt: updated transcript is shown
 
    The Job Details pane also shows important information related to the job.
-
-   // insert image here //
 
    .. note::
       If you want to open the submit script file directly in the terminal, use the **Open Terminal** button. **Open Dir** will open the directory in the file manager.
 
 4. Now, hit the **Submit** button. The status will change from *Not Submitted* to *Queued* or *Running*. You will see a success message alert at the top of your page. The status will change to *Completed* once finished.
 
-   // insert image here //
+   .. image:: buddy-documentation/source/_static/img/ondemand-jobs-default-submit.png
+      :alt: Jub Submitted
 
 5. To view the output, click the generated output file ``slurm-<job-id>.out`` under **Folder contents** in the Job Details section.
 
-   // insert image here //
+   .. image:: buddy-documentation/source/_static/img/ondemand-jobs-default-modify5.png
+      :alt: To view the output
 
    Output (slurm-<job-id>.out):
-   // insert image here //
+   .. image:: buddy-documentation/source/_static/img/ondemand-jobs-default-viewoutput.png
+      :alt: Script Output
