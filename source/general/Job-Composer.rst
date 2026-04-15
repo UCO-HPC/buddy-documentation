@@ -3,7 +3,8 @@ Job Composer
 
 To create jobs through Open OnDemand, navigate to Jobs > Jobs Composer from the dashboard.
 
-// insert image here //
+.. image:: buddy-documentation/source/_static/img/ondemand_nav_Job.png
+   :alt: Navbar-Jobs of the ondemand
 
 You will see the below output opened in a new tab. The list of options available to create new jobs are: From Default Template, From Template, From Specified Path, and From Selected Job.
 
