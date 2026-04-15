@@ -10,6 +10,9 @@ You will see the below output opened in a new tab. The list of options available
 
 // insert image here //
 
+.. image:: buddy-documentation/source/_static/img/ondemand_jobcomp_def.png
+   :alt: choose an option for create a job
+
 Create Job
 ----------
 
@@ -18,19 +21,23 @@ From Default Template
 
 1. On the Job Composer page, select **New Job > From Default Template**.
 
-   // insert image here //
+   .. image:: buddy-documentation/source/_static/img/ondemand-jobs-output.png
+      :alt: select from default template.
 
    A new job will be created like below.
 
-   // insert image here //
+   .. image:: buddy-documentation/source/_static/img/ondemand-jobs-default-create.png
+      :alt: Job created
 
 2. You can modify the options of the created job like name, Cluster, Job Script using the **Job Options** button.
 
-   // insert image here //
+   .. image:: buddy-documentation/source/_static/img/ondemand-jobs-default-modify.png
+      :alt: option for modifying created job
 
    After you click the button, you can change the job options like below:
 
-   // insert image here //
+   .. image:: buddy-documentation/source/_static/img/ondemand_default_jobmodify_1.png
+      :alt: Jop options were displayed
 
    In the above example, the Name has been changed from default (Simple Sequential Job) to TestJob. After the name has been modified, hit the **Save** button and the modified job name will be replicated in the Job Composer page.
 
