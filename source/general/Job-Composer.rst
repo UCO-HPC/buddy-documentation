@@ -92,6 +92,29 @@ It also saves time. Also, it’s easier and faster to create a custom template i
    
       .. code-block:: bash
 
-      mkdir custom_template
+         mkdir custom_template
 
-2. Create the following files, input.txt, script.sh under custom_template directory
+2. Create the following files, ``input.txt`` and ``script.sh`` under the ``custom_template`` directory.
+
+.. tab-set::
+
+   .. tab-item:: input.txt
+
+      .. code-block:: text
+
+         apt install python
+         echo hello
+         apt update
+
+   .. tab-item:: script.sh
+
+      .. code-block:: bash
+
+         #!/bin/bash
+
+         while IFS= read -r line; do
+           if [[ "$line" == *"apt"* ]]; then
+             printf '%s\n' "$line"
+           fi
+         done < input.txt
+
