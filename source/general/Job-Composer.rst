@@ -77,6 +77,22 @@ From Default Template
       :alt: To view the output
 
    Output (slurm-<job-id>.out):
-   
+
    .. image:: ../_static/img/ondemand-jobs-default-viewoutput.png
       :alt: Script Output
+
+From Default Template
+^^^^^^^^^^^^^^^^^^^^^
+
+From Template
+Instead of retyping the Slurm attributes and job parameters for your new job, you can create a custom template and use as a basis for your future jobs.
+It also saves time. Also, it’s easier and faster to create a custom template in Open OnDemand. Follow the below steps to create a custom template and compose job from that template.
+
+1. First, create a directory called custom_template under your home directory.
+   
+   .. code-block:: [asamadi@ssh1 ~]$ mkdir custom_template
+
+   pip install my-package
+   python app.py
+
+2. Create the following files, input.txt, script.sh under custom_template directory
