@@ -98,7 +98,7 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
    input.txt:
       
-      .. code-block:: text
+      .. code-block:: bash
 
          Ubuntu,apt
          Debian,apt
