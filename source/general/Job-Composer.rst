@@ -3,12 +3,12 @@ Job Composer
 
 To create jobs through Open OnDemand, navigate to Jobs > Jobs Composer from the dashboard.
 
-.. image:: source/_static/img/ondemand_nav_Job.png
+.. image:: /_static/img/ondemand_nav_Job.png
    :alt: Navbar-Jobs of the ondemand
 
 You will see the below output opened in a new tab. The list of options available to create new jobs are: From Default Template, From Template, From Specified Path, and From Selected Job.
 
-.. image:: source/_static/img/ondemand_jobcomp_def.png
+.. image:: /_static/img/ondemand_jobcomp_def.png
    :alt: choose an option for create a job
 
 Create Job
@@ -19,7 +19,7 @@ From Default Template
 
 1. On the Job Composer page, select **New Job > From Default Template**.
 
-   .. image:: source/_static/img/ondemand-jobs-output.png
+   .. image:: /_static/img/ondemand-jobs-output.png
       :alt: select from default template.
 
    A new job will be created like below.
