@@ -96,11 +96,9 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
 2. Create the following files, ``input.txt`` and ``script.sh`` under the ``custom_template`` directory.
 
-   .. tab-set::
-
-      .. tab-item:: input.txt
-
-         .. code-block:: text
+   .. tab-item:: input.txt
+      
+      .. code-block:: text
 
             Ubuntu,apt
             Debian,apt
@@ -108,14 +106,14 @@ It also saves time. Also, it’s easier and faster to create a custom template i
             Arch Linux,pacman
             Fedora,dnf
 
-      .. tab-item:: script.sh
+   .. tab-item:: script.sh
 
-         .. code-block:: bash
+      .. code-block:: bash
 
-            #!/bin/bash
+         #!/bin/bash
 
-            while IFS= read -r line; do
-                if [[ "$line" == *"apt"* ]]; then
-                  printf '%s\n' "$line"
-                fi
-            done < input.txt
+         while IFS= read -r line; do
+            if [[ "$line" == *"apt"* ]]; then
+               printf '%s\n' "$line"
+             fi
+         done < input.txt
