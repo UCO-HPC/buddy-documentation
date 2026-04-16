@@ -100,11 +100,11 @@ It also saves time. Also, it’s easier and faster to create a custom template i
       
       .. code-block:: text
 
-            Ubuntu,apt
-            Debian,apt
-            CentOS,yum
-            Arch Linux,pacman
-            Fedora,dnf
+         Ubuntu,apt
+         Debian,apt
+         CentOS,yum
+         Arch Linux,pacman
+         Fedora,dnf
 
    script.sh:
 
