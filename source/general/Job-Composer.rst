@@ -96,7 +96,7 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
 2. Create the following files, ``input.txt`` and ``script.sh`` under the ``custom_template`` directory.
 
-   .. tab-item:: input.txt
+   input.txt:
       
       .. code-block:: text
 
@@ -106,7 +106,7 @@ It also saves time. Also, it’s easier and faster to create a custom template i
             Arch Linux,pacman
             Fedora,dnf
 
-   .. tab-item:: script.sh
+   script.sh:
 
       .. code-block:: bash
 
