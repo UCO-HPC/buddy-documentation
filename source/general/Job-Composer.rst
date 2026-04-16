@@ -101,6 +101,7 @@ It also saves time. Also, it’s easier and faster to create a custom template i
          .. tab-item:: input.txt
 
             .. code-block:: text
+               
                Ubuntu,apt
                Debian,apt
                CentOS,yum
