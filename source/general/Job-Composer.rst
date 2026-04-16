@@ -88,7 +88,7 @@ From Template
 Instead of retyping the Slurm attributes and job parameters for your new job, you can create a custom template and use as a basis for your future jobs.
 It also saves time. Also, it’s easier and faster to create a custom template in Open OnDemand. Follow the below steps to create a custom template and compose job from that template.
 
-1. First, create a directory called custom_template under your home directory.
+1. First, create a directory called ``custom_template`` under your home directory.
    
       .. code-block:: bash
 
@@ -96,25 +96,26 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
 2. Create the following files, ``input.txt`` and ``script.sh`` under the ``custom_template`` directory.
 
-.. tab-set::
+      .. tab-set::
 
-   .. tab-item:: input.txt
+         .. tab-item:: input.txt
 
-      .. code-block:: text
+            .. code-block:: text
+               Ubuntu,apt
+               Debian,apt
+               CentOS,yum
+               Arch Linux,pacman
+               Fedora,dnf
 
-         apt install python
-         echo hello
-         apt update
+      .. tab-item:: script.sh
 
-   .. tab-item:: script.sh
+         .. code-block:: bash
 
-      .. code-block:: bash
+            #!/bin/bash
 
-         #!/bin/bash
-
-         while IFS= read -r line; do
-           if [[ "$line" == *"apt"* ]]; then
-             printf '%s\n' "$line"
-           fi
-         done < input.txt
+            while IFS= read -r line; do
+                if [[ "$line" == *"apt"* ]]; then
+                  printf '%s\n' "$line"
+                fi
+            done < input.txt
 
