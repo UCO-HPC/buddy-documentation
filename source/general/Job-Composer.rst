@@ -123,4 +123,4 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
 3. The custom template is ready and available under the path **<home></your-username></custom_template>**. Now, using Open OnDemand, you can create a template.
 
-  a. Go to **Jobs > Jobs Composer** from the dashboard. Select the **templates** tab.
+   a. Go to **Jobs > Jobs Composer** from the dashboard. Select the **templates** tab.
