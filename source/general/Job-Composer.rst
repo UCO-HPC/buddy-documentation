@@ -90,9 +90,8 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
 1. First, create a directory called custom_template under your home directory.
    
-   .. code-block:: [asamadi@ssh1 ~]$ mkdir custom_template
+      .. code-block:: bash
 
-   pip install my-package
-   python app.py
+      mkdir custom_template
 
 2. Create the following files, input.txt, script.sh under custom_template directory
