@@ -77,5 +77,6 @@ From Default Template
       :alt: To view the output
 
    Output (slurm-<job-id>.out):
+   
    .. image:: ../_static/img/ondemand-jobs-default-viewoutput.png
       :alt: Script Output
