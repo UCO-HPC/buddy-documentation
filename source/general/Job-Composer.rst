@@ -1,7 +1,7 @@
 Job Composer
 ============
 
-To create jobs through Open OnDemand, navigate to Jobs > Jobs Composer from the dashboard.
+To create jobs through Open OnDemand, navigate to **Jobs > Jobs Composer** from the dashboard.
 
 .. image:: ../_static/img/ondemand_nav_Job.png
    :alt: Navbar-Jobs of the ondemand
@@ -76,7 +76,7 @@ From Default Template
    .. image:: ../_static/img/ondemand-jobs-default-modify5.png
       :alt: To view the output
 
-   Output (slurm-<job-id>.out):
+   **Output (slurm-<job-id>.out)**:
 
    .. image:: ../_static/img/ondemand-jobs-default-viewoutput.png
       :alt: Script Output
@@ -117,3 +117,10 @@ It also saves time. Also, it’s easier and faster to create a custom template i
                printf '%s\n' "$line"
              fi
          done < input.txt
+
+   The bash script **script.sh** will read the input file line by line and if it finds a line 
+   that has the string **apt**, then, it will print the line.
+
+3. The custom template is ready and available under the path **<home></your-username></custom_template>**. Now, using Open OnDemand, you can create a template.
+
+  a. Go to **Jobs > Jobs Composer** from the dashboard. Select the **templates** tab.
