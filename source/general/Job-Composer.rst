@@ -175,9 +175,110 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 From Specified Path
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Creating jobs from **Specified Path** is one of the simplest ways of creating a job but there are things you need to take note of.
+   Creating jobs from **Specified Path** is one of the simplest ways of creating a job but there are things you need to take note of.
 
 
+.. note::
+   If you want to open the submit script file directly in the terminal, use the **Open Terminal** button.
+   **Open Dir** will open the directory in the file manager.
+
+.. warning::
+   If you have a submission script called **script.sh** in your home directory and you specify path as **home/<your-username>**, it will cause all the content such as files and sub directories in the home directory to be copied under the new workspace which is a bad and space overkill. 
+   It’s recommended to create a directory and place all the necessary scripts under that directory and specify it as a source path for your jobs.
+
+1. First, create a directory called **test** under your **home** directory.
+
+   .. code-block:: bash
+
+      mkdir test
+
+2. Create the following files, **script.py**, **script.sh** under **test** directory.  
+
+   script.sh:
+      
+      .. code-block:: bash
+
+         #!/bin/bash
+
+         #SBATCH --job-name=maxFib      ## Name of the job
+         #SBATCH --output=maxFib.out    ## Output file
+         #SBATCH --time=0-00:10:00      ## Job Duration
+         #SBATCH --ntasks=1             ## Number of tasks (analyses) to run
+         #SBATCH --cpus-per-task=1      ## The number of threads the code will use
+         #SBATCH --mem-per-cpu=100M     ## Real memory(MB) per CPU required by the job.
+
+         ## Load the python interpreter
+         module load python
+
+         ## Execute the python script and pass the argument/input '90'
+         srun --export=ALL python script.py 90
+
+   script.py:
+
+      .. code-block:: bash
+
+         import sys
+         import os
+
+         if len(sys.argv) != 2:
+            print('Usage: %s MAXIMUM' % (os.path.basename(sys.argv[0])))
+            sys.exit(1)
+
+         maximum = int(sys.argv[1])
+
+         n1 = 1
+         n2 = 1
+
+         while n2 <= maximum:
+            n1, n2 = n2, n1 + n2
+
+         print('The greatest Fibonacci number up to %d is %d' % (maximum, n1))
+
+.. important::
+   If you have a close look at the submit script **script.sh**, it has --export=ALL flag in the srun command. 
+   The flag is mandatory if you want to submit and run jobs to the **Discovery** cluster through Open OnDemand.
+
+3. Now, navigate to **Jobs > Job Composer**. Select **New Job > From Specified Path**.
+
+   .. image:: ../_static/img/ondemand-jobs-path-create.png
+      :alt: To choose the specific path
+
+4. Enter the source path to **test** directory and give a name for the job as **PythonJob**. 
+   Also, give a name for the submission script as **script.sh** and specify the cluster name as **Discovery**. Hit **Save** button after setting all the job options.
+
+   .. image:: ../_static/img/ondemand-jobs-path-input.png
+      :alt: To show the path output
+
+5. You will see a new job created in the **Jobs** page. Now, select the **Submit** button to launch the job.
+
+   .. image:: ../_static/img/ondemand-jobs-path-submit.png
+      :alt: To show the path output
+
+6. Now, you will see the status changing from **Not Submitted** to **Queued/Running**. 
+   After the status changes to **Completed**, you can view the output **maxFib.out** under Folder Contents on the right pane.
+
+   .. image:: ../_static/img/ondemand-jobs-relativepath-detail.png
+      :alt: To show the deatil of created job
+
+   **Output(maxFib.out):*
+
+      .. image:: ../_static/img/ondemand-jobs-relativepath-detail.png
+         :alt: To show the output
 
 
+From Selected Job
+^^^^^^^^^^^^^^^^^^^^^^
 
+   1. To create a new job from the existing one, select **New Job > From Selected Job.**
+
+      .. image:: ../_static/img/ondemand-jobs-selectedjob-create.png
+        :alt: To select from Selected Job
+
+   2. You will have a new job(copy) created in the **Jobs** page.
+
+      .. image:: ../_static/img/ondemand-jobs-selectedjob-output.png
+         :alt: To see the created job in the folder
+
+.. note::
+   You can also use the buttons **Stop, Delete** to stop a running job and delete the selected job respectively
+      
