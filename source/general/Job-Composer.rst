@@ -66,8 +66,7 @@ From Default Template
 
    The Job Details pane also shows important information related to the job.
 
-   .. note:: bash 
-
+   .. note::
       If you want to open the submit script file directly in the terminal, use the **Open Terminal** button.
       **Open Dir** will open the directory in the file manager.
 
