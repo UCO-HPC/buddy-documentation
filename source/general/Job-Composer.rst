@@ -66,8 +66,10 @@ From Default Template
 
    The Job Details pane also shows important information related to the job.
 
-   .. note::
-      If you want to open the submit script file directly in the terminal, use the **Open Terminal** button. **Open Dir** will open the directory in the file manager.
+   .. note:: bash 
+
+      If you want to open the submit script file directly in the terminal, use the **Open Terminal** button.
+      **Open Dir** will open the directory in the file manager.
 
 4. Now, hit the **Submit** button. The status will change from *Not Submitted* to *Queued* or *Running*. You will see a success message alert at the top of your page. The status will change to *Completed* once finished.
 
@@ -166,13 +168,17 @@ It also saves time. Also, it’s easier and faster to create a custom template i
    .. image:: ../_static/img/ondemand-jobs-customtemp-outputjob.png
       :alt: To output the content 
 
-**Output(slurm-<job-id>.out):**
+   **Output(slurm-<job-id>.out):**
    
-   .. image:: ../_static/img/ondemand-jobs-customtemp-viewoutput.png
-      :alt: Output content
+      .. image:: ../_static/img/ondemand-jobs-customtemp-viewoutput.png
+         :alt: Output content
 
-From Template
-^^^^^^^^^^^^^^^^^^^^^
+From Specified Path
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Creating jobs from **Specified Path** is one of the simplest ways of creating a job but there are things you need to take note of.
+
+
 
 
 
