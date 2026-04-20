@@ -146,9 +146,33 @@ It also saves time. Also, it’s easier and faster to create a custom template i
       .. image:: ../_static/img/ondemand-jobs-customtemp-dispalyed.png
          :alt: Show the custom-template
 
-      Also, on the right bottom, you can see Template location and also Folder Contents with the files input.txt, script.sh and an additional file called manifest.yml.
+      Also, on the right bottom, you can see **Template location** and also **Folder Contents** with the files **input.txt, script.sh** and an additional file called **manifest.yml**.
 
-4. Now, you can create a job from the template. Select the Create New Job button from the Templates page. 
-  A new job will be created using the custom template and you will be automatically redirected to the Jobs page         
+4. Now, you can create a job from the template. Select the **Create New Job** button from the **Templates** page. 
+   A new job will be created using the custom template and you will be automatically redirected to the **Jobs** page      
+
+   .. image:: ../_static/img/ondemand-jobs-customtemp-createjob.png
+      :alt: Create job from template page
+
+5. Submit the job by clicking **Submit** button and you will the status change from **Not Submitted** to **Queued** or **Running**. 
+   You will also see a success alert for the job submission at the top of your page.
+
+   .. image:: ../_static/img/ondemand-jobs-customtemp-submit.png
+      :alt: To submit the custom template
+
+6. After the status changes to **completed** which indicates that the job has finished, select the output file **slurm-<job-id>**.
+   out under the **folder contents** section on the right pane of the window.  
+
+   .. image:: ../_static/img/ondemand-jobs-customtemp-outputjob.png
+      :alt: To output the content 
+
+**Output(slurm-<job-id>.out):**
+   
+   .. image:: ../_static/img/ondemand-jobs-customtemp-viewoutput.png
+      :alt: Output content
+
+From Template
+^^^^^^^^^^^^^^^^^^^^^
+
 
 
