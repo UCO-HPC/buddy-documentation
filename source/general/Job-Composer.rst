@@ -260,7 +260,7 @@ From Specified Path
    .. image:: ../_static/img/ondemand-jobs-relativepath-detail.png
       :alt: To show the deatil of created job
 
-**Output(maxFib.out):*
+**Output(maxFib.out):**
 
    .. image:: ../_static/img/ondemand-jobs-relativepath-detail.png
       :alt: To show the output
