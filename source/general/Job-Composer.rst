@@ -128,22 +128,22 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
    a. Go to **Jobs > Jobs Composer** from the dashboard. Select the **templates** tab.
 
-      .. image:: ../source/_static/img/ondemand-jobs-customtemp-create.png
+      .. image:: ../_static/img/ondemand-jobs-customtemp-create.png
          :alt: Select template from headers
 
    b. Select New Template from the Templates page
 
-      .. image:: ../source/_static/img/ondemand-jobs-customtemp-new.png
+      .. image:: ../_static/img/ondemand-jobs-customtemp-new.png
          :alt: To create new template
 
    c. Now, you can enter the values for the custom template. Enter the path and name to the template and hit Save button
 
-      .. image:: ../source/_static/img/ondemand-jobs-editor-customtemp.png
+      .. image:: ../_static/img/ondemand-jobs-editor-customtemp.png
          :alt: To edit custom template built-in
 
    d. You will see the template has been successfully created and you will see a similar output like below. 
       
-      .. image:: ../source/_static/img/ondemand-jobs-customtemp-dispalyed.png
+      .. image:: ../_static/img/ondemand-jobs-customtemp-dispalyed.png
          :alt: Show the custom-template
 
       Also, on the right bottom, you can see Template location and also Folder Contents with the files input.txt, script.sh and an additional file called manifest.yml.
