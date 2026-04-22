@@ -49,6 +49,7 @@ From Default Template
 
 3. Now, modify the submit script ``main_job.sh``.
 
+
    a. On the Job Composer page, hit the **Open Editor** button under Submit Script section.
 
       .. image:: ../_static/img/ondemand_jobmodify3.png
@@ -126,6 +127,7 @@ It also saves time. Also, it’s easier and faster to create a custom template i
    that has the string **apt**, then, it will print the line.
 
 3. The custom template is ready and available under the path **<home></your-username></custom_template>**. Now, using Open OnDemand, you can create a template.
+
 
    a. Go to **Jobs > Jobs Composer** from the dashboard. Select the **templates** tab.
 
