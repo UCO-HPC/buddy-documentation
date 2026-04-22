@@ -128,7 +128,6 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
 3. The custom template is ready and available under the path **<home></your-username></custom_template>**. Now, using Open OnDemand, you can create a template.
 
-
    a. Go to **Jobs > Jobs Composer** from the dashboard. Select the **templates** tab.
 
    .. image:: ../_static/img/ondemand-jobs-customtemp-create.png
@@ -136,20 +135,20 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
    b. Select New Template from the Templates page
 
-      .. image:: ../_static/img/ondemand-jobs-customtemp-new.png
-         :alt: To create new template
+   .. image:: ../_static/img/ondemand-jobs-customtemp-new.png
+      :alt: To create new template
 
    c. Now, you can enter the values for the custom template. Enter the path and name to the template and hit Save button
 
-      .. image:: ../_static/img/ondemand-jobs-editor-customtemp.png
-         :alt: To edit custom template built-in
+   .. image:: ../_static/img/ondemand-jobs-editor-customtemp.png
+      :alt: To edit custom template built-in
 
    d. You will see the template has been successfully created and you will see a similar output like below. 
       
-      .. image:: ../_static/img/ondemand-jobs-customtemp-dispalyed.png
-         :alt: Show the custom-template
+   .. image:: ../_static/img/ondemand-jobs-customtemp-dispalyed.png
+      :alt: Show the custom-template
 
-      Also, on the right bottom, you can see **Template location** and also **Folder Contents** with the files **input.txt, script.sh** and an additional file called **manifest.yml**.
+   Also, on the right bottom, you can see **Template location** and also **Folder Contents** with the files **input.txt, script.sh** and an additional file called **manifest.yml**.
 
 4. Now, you can create a job from the template. Select the **Create New Job** button from the **Templates** page. 
    A new job will be created using the custom template and you will be automatically redirected to the **Jobs** page      
