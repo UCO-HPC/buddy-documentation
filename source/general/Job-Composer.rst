@@ -131,8 +131,8 @@ It also saves time. Also, it’s easier and faster to create a custom template i
 
    a. Go to **Jobs > Jobs Composer** from the dashboard. Select the **templates** tab.
 
-      .. image:: ../_static/img/ondemand-jobs-customtemp-create.png
-         :alt: Select template from headers
+   .. image:: ../_static/img/ondemand-jobs-customtemp-create.png
+      :alt: Select template from headers
 
    b. Select New Template from the Templates page
 
