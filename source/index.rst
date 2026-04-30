@@ -25,6 +25,7 @@ Buddy Docs
    general/data_storage.rst
    general/data_transfer.rst
    general/tips.rst
+   general/Job-Composer.rst
 	  
 .. toctree::
    :maxdepth: 2
