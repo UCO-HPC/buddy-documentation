@@ -75,5 +75,6 @@ reliable execution:
 * Use ``module purge`` first.
 * Load only what is necessary.
 * Specify full module versions.
-* Be careful when loading modules in ``.bashrc`` — loading modules in your 
+
+!!Be careful when loading modules in ``.bashrc`` — loading modules in your 
   ``~/.bashrc`` can cause software conflicts, and even prevent login.
