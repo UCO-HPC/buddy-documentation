@@ -151,7 +151,7 @@ appropriate access groups at the same time.
 Email template
 ~~~~~~~~~~~~~
  
-To make this easier, copy the template below into an email to hpc@uco.edu, fill
+Copy the template below into an email to hpc@uco.edu, fill
 in the blanks, and attach your roster. Delete any lines that do not apply.
  
 .. code-block:: text
