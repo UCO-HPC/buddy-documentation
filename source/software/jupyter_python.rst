@@ -11,9 +11,9 @@ You do not have to build a software stack yourself. The app is driven by an
 Lmod modules, so there is no need to match FOSS/GCC/Python toolchains by hand.
 
 .. image:: /_static/img/ondemand_jupyter_python.png
-  :width: 75%
+  :width: 100%
   :align: center
-  :alt: The Buddy OnDemand Jupyter launch form
+  :alt: The Buddy OnDemand Jupyter launch form, with the Python - Data Science environment selected
 
 |
 
@@ -191,7 +191,7 @@ Version and Additional modules fields are therefore hidden when Course Module is
 selected.
 
 .. image:: /_static/img/ondemand_jupyter_course.png
-  :width: 75%
+  :width: 85%
   :align: center
   :alt: The Jupyter form with a Course Module selected
 
@@ -215,11 +215,15 @@ times out. The app runs ``module purge`` before your commands, so you are
 starting from a clean environment.
 
 .. image:: /_static/img/ondemand_jupyter_custom.png
-  :width: 75%
+  :width: 85%
   :align: center
   :alt: The Jupyter form with the Custom environment and Launch Commands
 
 |
+
+The commands above activate a uv environment; that recipe is covered in full in
+:ref:`jupyter-uv` below. A simpler use of Custom is to name a combination of
+modules that no curated environment offers:
 
 A combination of modules
 ~~~~~~~~~~~~~~~~~~~~~~~~
