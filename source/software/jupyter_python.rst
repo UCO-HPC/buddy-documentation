@@ -221,9 +221,9 @@ starting from a clean environment.
 
 |
 
-The commands above activate a uv environment; that recipe is covered in full in
-:ref:`jupyter-uv` below. A simpler use of Custom is to name a combination of
-modules that no curated environment offers:
+The two recipes below cover what most people need. The simpler one names a
+combination of modules that no curated environment offers; the other, in
+:ref:`jupyter-uv`, launches JupyterLab from one of your own uv environments.
 
 A combination of modules
 ~~~~~~~~~~~~~~~~~~~~~~~~
