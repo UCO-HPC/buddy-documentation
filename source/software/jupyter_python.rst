@@ -3,7 +3,7 @@ Jupyter/Python
 
 The **Jupyter** interactive app launches a JupyterLab server on a Buddy compute
 node and connects your browser to it. You reach it from OnDemand at
-`hpc.uco.edu <https://hpc.uco.edu>`_ under *Interactive Apps* → *Programming* →
+`ondemand.hpc.uco.edu <https://ondemand.hpc.uco.edu>`_ under *Interactive Apps* → *Programming* →
 *Jupyter*.
 
 You do not have to build a software stack yourself. The app is driven by an
