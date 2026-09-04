@@ -1,25 +1,15 @@
 .. _nrp-access:
 
-.. |namespace| replace:: <NAMESPACE>
-
 ==========================================
-Accessing the National Research Platform
+Accessing NRP (National Research Platform)
 ==========================================
-
-.. note::
-
-   **Audience:** UCO researchers, faculty, and students who need GPU or
-   container-based compute beyond what Buddy provides.
-
-   **Last reviewed:** <DATE>. Verify links against the `NRP documentation
-   <https://nrp.ai/documentation>`__ before publishing.
 
 .. contents:: On this page
    :local:
    :depth: 2
 
 
-What NRP is, and when to use it
+What is NRP?
 ===============================
 
 The **National Research Platform (NRP)** is an NSF-funded, community-owned
@@ -28,7 +18,7 @@ Kubernetes cluster the NRP runs on — it is the name you will see in the
 documentation and in the tooling itself. It is free to use for non-profit
 research and education.
 
-UCO has its own namespace on Nautilus: |namespace|. A namespace is an isolated
+UCO has its own namespace on Nautilus: uco. A namespace is an isolated
 space in the cluster where your pods run and your data lives.
 
 NRP vs. Buddy
@@ -67,8 +57,7 @@ portal first.
 
 #. You are redirected to **CILogon**, where you select an **Identity Provider**.
    **Select** ``Microsoft``. UCO is not listed individually in the CILogon
-   dropdown — do not scroll looking for it. UCO accounts authenticate through
-   Microsoft.
+   dropdown. UCO accounts authenticate through Microsoft.
 
 #. At the Microsoft prompt, sign in with your **UCO email address** and your
    normal UCO password. Use your ``@uco.edu`` address, not a personal Google,
@@ -93,7 +82,7 @@ Email **hpc@uco.edu** with:
 * Your department and, if you're a student, your faculty supervisor
 * A one-line description of what you plan to run
 
-We add you to |namespace|, which promotes your account from **guest** to
+We will add you to our uco namespace, which promotes your account from **guest** to
 **user**. You'll get a reply when it's done.
 
 
@@ -150,8 +139,7 @@ Needed for batch jobs, long-running work, persistent storage, and anything that
 has to survive a browser closing.
 
 NRP maintains the authoritative setup instructions, and they change as the
-cluster's authentication stack changes. **Follow their documentation directly
-rather than any copy of it** — a stale copy is worse than no copy:
+cluster's authentication stack changes. **Follow their documentation directly**:
 
 .. admonition:: Start here
    :class: tip
@@ -159,7 +147,7 @@ rather than any copy of it** — a stale copy is worse than no copy:
    `NRP — Getting access to Nautilus
    <https://nrp.ai/documentation/userdocs/start/getting-started/>`__
 
-That page walks through the full sequence:
+This link walks you through the full sequence:
 
 #. Install the ``kubectl`` command-line tool.
 #. Install the **kubelogin** plugin — this is mandatory; without it your config
