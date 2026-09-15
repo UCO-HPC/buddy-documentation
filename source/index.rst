@@ -36,9 +36,10 @@ Buddy Docs
    software/overview
    software/ansys
    software/comsol
-   software/conda
    software/gaussian
+   software/Using_Modules
    software/jupyter_python
+   software/uv
    software/buddygpt
    software/r_studio
    
