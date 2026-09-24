@@ -1,3 +1,3 @@
-Machine Learning
+AI Documentation
 ================
 
