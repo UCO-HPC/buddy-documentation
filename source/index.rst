@@ -42,6 +42,7 @@ Buddy Docs
    software/uv
    software/buddygpt
    software/r_studio
+   software/mumax
    
 .. toctree::
    :maxdepth: 2
