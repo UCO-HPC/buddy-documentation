@@ -4,8 +4,8 @@ mumax3 and mumax+
 =================
 
 mumax3 and mumax+ are programs for simulating magnetic materials (micromagnetics),
-developed by the DyNaMat group at Ghent University. Both use a graphics card (GPU) to
-run simulations quickly, so they only work on Buddy's GPU nodes, not on the login nodes.
+developed by the DyNaMat group at Ghent University. Both use a GPU to run simulations quickly,
+so they only work on Buddy's GPU nodes.
 
 .. list-table::
    :header-rows: 1
